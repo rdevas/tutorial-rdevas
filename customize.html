@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rails Girls Florianópolis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Rails Girls Florianópolis</h1>
+      <h2 class="project-tagline">Tutorial de aplicação para o Rails Girls</h2>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Personalize o seu projeto.</h1>
+
+<h2>Área de Comentários</h2>
+<p>Vamos aprender como criar uma área de comentários para nossa aplicação <em>railsgirls</em> ideas.</p>
+
+
+<h2 id='step_1_add_foreigner_gem'>Passo 1: Adicionando a foreigner gem</h2>
+
+<p>Adicionar Gemfile</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;foreigner&#39;</span>
+</code></pre>
+</div>
+<p>No terminal, pare o servidor se ele estiver rodando e, digite:</p>
+<div class='highlight'><pre><code class='sh'>bundle install
+</code></pre>
+</div>
+<h2 id='step_2_create_comment_scaffold'>Passo 2: Criando o scaffold para comentários</h2>
+
+<p>Crie o scaffold para os comentários fazendo constar o nome de quem comenta, o corpo do comentário (conteúdo do comentário) e uma referência para a tabela ideas (idea_id).</p>
+<div class='highlight'><pre><code class='sh'>rails g scaffold comment user_name:string body:text idea_id:integer
+</code></pre>
+</div>
+<h2 id='step_3_add_foreign_key_connections'>Passo 3: Adicione a chave estrangeira para a conexão</h2>
+
+<p>Adicione a chave na migração. Abra em db/migrate/ o arquivo  cujo nome termina com &#8216;create_comments.rb&#8217;. Depois de:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>t</span><span class='o'>.</span><span class='n'>timestamps</span>
+<span class='k'>end</span>
+</code></pre>
+</div>
+<p>acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>add_foreign_key</span> <span class='ss'>:comments</span><span class='p'>,</span> <span class='ss'>:ideas</span>
+</code></pre>
+</div>
+<p>A seguir migre as alterações feitas no banco de dados digitando no terminal o seguinte:</p>
+<div class='highlight'><pre><code class='sh'>rake db:migrate
+</code></pre>
+</div>
+<p>Inicie o servidor digitando:</p>
+<div class='highlight'><pre><code class='sh'>rails s
+</code></pre>
+</div>
+<h2 id='step_4_add_relations_to_models'>Passo 4: Adicione relacionamentos aos modelos</h2>
+
+<p>Você precisa assegurar que Rails é capaz de identificar a conexão entre objetos (ideas e comentários). De vez que uma idea pode ter vários comentários precisamos assegurar que o modelo ideas sabe disso. Abra app/models/idea.rb e logo após a linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='k'>class</span> <span class='nc'>Idea</span> <span class='o'>&lt;</span> <span class='no'>ActiveRecord</span><span class='o'>::</span><span class='no'>Base</span>
+</code></pre>
+</div>
+<p>acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>has_many</span> <span class='ss'>:comments</span>
+</code></pre>
+</div>
+<p>Um comentário precisa saber que ele pertence a uma idea. Assim, abra app/models/comment.rb e logo após a linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='k'>class</span> <span class='nc'>Comment</span> <span class='o'>&lt;</span> <span class='no'>ActiveRecord</span><span class='o'>::</span><span class='no'>Base</span>
+</code></pre>
+</div>
+<p>acrescente a seguinte linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>belongs_to</span> <span class='ss'>:idea</span>
+</code></pre>
+</div>
+<h2 id='step_5_render_the_comment_form_and_existing_comments'>Step 5: Mostrar o formulário e os comentários existentes</h2>
+
+<p>Abra app/views/ideas/show.html é depois da tag de imagem (image_tag):</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>image_tag</span><span class='p'>(</span><span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture_url</span><span class='p'>,</span> <span class='ss'>:width</span> <span class='o'>=&gt;</span> <span class='mi'>600</span><span class='p'>)</span> <span class='k'>if</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture</span><span class='o'>.</span><span class='n'>present?</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div></p>
+
+<p>acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='erb'><span class='x'>&lt;h3&gt;Comments&lt;/h3&gt;</span>
+<span class='cp'>&lt;%</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>comments</span><span class='o'>.</span><span class='n'>each</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>comment</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='x'>  &lt;div&gt;</span>
+<span class='x'>    &lt;strong&gt;</span><span class='cp'>&lt;%=</span> <span class='n'>comment</span><span class='o'>.</span><span class='n'>user_name</span> <span class='cp'>%&gt;</span><span class='x'>&lt;/strong&gt;</span>
+<span class='x'>    &lt;br /&gt;</span>
+<span class='x'>    &lt;p&gt;</span><span class='cp'>&lt;%=</span> <span class='n'>comment</span><span class='o'>.</span><span class='n'>body</span> <span class='cp'>%&gt;</span><span class='x'>&lt;p&gt;</span>
+<span class='x'>  &lt;/div&gt;</span>
+<span class='cp'>&lt;%</span> <span class='k'>end</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='cp'>&lt;%=</span> <span class='n'>render</span> <span class='s1'>&#39;comments/form&#39;</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div>
+<p>Em app/controllers/ideas_controller.rb acrescente a ação mostrar logo após a linha:</p>
+
+<div class='highlight'><pre><code class='ruby'><span class='vi'>@idea</span> <span class='o'>=</span> <span class='no'>Idea</span><span class='o'>.</span><span class='n'>find</span><span class='p'>(</span><span class='n'>params</span><span class='o'>[</span><span class='ss'>:id</span><span class='o'>]</span><span class='p'>)</span>
+</code></pre>
+</div>
+
+<p>digitando o seguinte:</p><div class='highlight'><pre><code class='ruby'><span class='vi'>@comment</span> <span class='o'>=</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>comments</span><span class='o'>.</span><span class='n'>build</span>
+</code></pre>
+</div></p>
+
+<p>Abra comments/_form.html e logo após:</p>
+<div class='highlight'><pre><code class='erb'><span class='x'>  &lt;div class=&quot;field&quot;&gt;</span>
+<span class='x'>    </span><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>label</span> <span class='ss'>:body</span> <span class='cp'>%&gt;</span><span class='x'>&lt;br /&gt;</span>
+<span class='x'>    </span><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>text_area</span> <span class='ss'>:body</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='x'>  &lt;/div&gt;</span>
+</code></pre>
+</div>
+<p>acrescente a seguinte linha:</p>
+<div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>hidden_field</span> <span class='ss'>:idea_id</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div>
+<p>Pronto! Visualize uma idea que você tenha acrescentado à sua aplicação e você verá ali o formulário para inserir um comentário.</p>
+      </div>
+    </article>
+
+<hr>
+
+<h3>
+  Crie thumbnails com Carrierwave
+</h3>
+
+
+<h2 id='installing_imagemagick'>Instalando ImageMagick</h2>
+
+<ul>
+<li>
+<p>OS X: rode: <code>brew install imagemagick</code></p>
+</li>
+
+<li>
+<p>Windows: faça o download e rode o <a href='http://www.imagemagick.org/script/binary-releases.php?ImageMagick=vkv0r0at8sjl5qo91788rtuvs3#windows'>Instalador do ImageMagick installer</a> (use o primeiro link para <em>download</em>).</p>
+</li>
+
+<li>
+<p>Linux:  Ubuntu e Debian, rode: <code>sudo apt-get install imagemagick</code>. Use o gerenciador de pacote apropriado em lugar do <code>apt-get</code> para outras distribuições.</p>
+</li>
+</ul>
+
+<p><strong>Coach</strong>: Explicar o que é ImageMagick e qual a diferença para outras bibliotecas/gems que já usamos anteriormente.</p>
+
+<p>Abra <code>Gemfile</code> no seu projeto e acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;mini_magick&#39;</span>
+</code></pre>
+</div>
+<p>logo após a linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;carrierwave&#39;</span>
+</code></pre>
+</div>
+<p>No Terminal rode:</p>
+<div class='highlight'><pre><code class='sh'>bundle
+</code></pre>
+</div>
+<h2 id='telling_our_app_to_create_thumbnails_when_an_image_is_uploaded'>Dizendo para a app criar um thumbnail quando uma imagem for enviada ao servidor</h2>
+
+<p>Abra <code>app/uploaders/picture_uploader.rb</code> e encontre a seguinte linha de código:</p>
+<div class='highlight'><pre><code class='ruby'>  <span class='c1'># include CarrierWave::MiniMagick</span>
+</code></pre>
+</div>
+<p>Remove o sinal <code>#</code>.</p>
+
+<p><strong>Coach</strong>: Explicar o uso e finalidades da inserção de comentários nos códigos.</p>
+
+<p>Logo após a linha que você acabou de descomentar acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>version</span> <span class='ss'>:thumb</span> <span class='k'>do</span>
+  <span class='n'>process</span> <span class='ss'>:resize_to_fill</span> <span class='o'>=&gt;</span> <span class='o'>[</span><span class='mi'>50</span><span class='p'>,</span> <span class='mi'>50</span><span class='o'>]</span>
+<span class='k'>end</span>
+</code></pre>
+</div>
+<p>A partir de agora as imagens enviadas ao servidor serão redimensionadas para criar thumbnails, contudo aquelas já existentes no servidor não serão afetadas. Edite uma das ideas já existentes e reenvie a imagem para o servidor.</p>
+
+<h2 id='displaying_the_thumbnails'>Mostrando um thumbnail</h2>
+
+<p>Para verificar se uma imagem enviada ao servidor foi redimensionada abra <code>app/views/ideas/index.html.erb</code>. Altere a seguinte linha de código:</p>
+<div class='highlight'><pre><code class='erb'><span class='x'>&lt;td&gt;</span><span class='cp'>&lt;%=</span> <span class='n'>idea</span><span class='o'>.</span><span class='n'>picture</span> <span class='cp'>%&gt;</span><span class='x'>&lt;/td&gt;</span>
+</code></pre>
+</div>
+<p>para:</p>
+<div class='highlight'><pre><code class='erb'><span class='x'>&lt;td&gt;</span><span class='cp'>&lt;%=</span> <span class='n'>image_tag</span> <span class='n'>idea</span><span class='o'>.</span><span class='n'>picture_url</span><span class='p'>(</span><span class='ss'>:thumb</span><span class='p'>)</span> <span class='k'>if</span> <span class='n'>idea</span><span class='o'>.</span><span class='n'>picture?</span> <span class='cp'>%&gt;</span><span class='x'>&lt;/td&gt;</span>
+</code></pre>
+</div>
+<p>Dê uma olhada na lista das ideas, no navegador, para verificar se o thumbnail está ali.</p>
+      </div>
+    </article>
+   
+<hr>
+<br>
+<br>
+<div class="navigation">ir para o <a href="publish.html">Passo 4: E agora? O que mais posso fazer?</a></div>
+<br> 
+    <footer>
+  
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://railsgirls.com/florianopolis">Rails Girls Florianópolis</a></span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
