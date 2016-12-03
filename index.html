@@ -12,122 +12,45 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Rails Girls Florianópolis</h1>
-      <h2 class="project-tagline">Tutorial de aplicação para o Rails Girls</h2>
+      <h2 class="project-tagline">Tutorial de aplicação Rails criado para o <a href="http://railsgirls.com/florianopolis">Rails Girls Florianópolis</a></h2>
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Desenvolva a sua primeira aplicação Rails.</h1>
+      <h1>Tutorial</h1>
 
-<p>Criado para o Rails Girls Floripa
-2016</p>
-
+<p>Este guia foi criado com a finalidade de ajudar você a dar seus primeiros passos no mundo da programação com a linguagem Ruby on Rails.</p>
 <hr>
 
-<h2>
-<a id="introdução-conhecendo-as-ferramentas" class="anchor" href="#introdu%C3%A7%C3%A3o-conhecendo-as-ferramentas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introdução: Conhecendo as ferramentas</h2>
+  <dl>
+    <dt><h2>Passo 1: <a href="installation.html">Ruby on Rails: Primeiros Passos</a></h2></dt>
+    <dd>      
+      <p>Antes de começar a construir uma aplicação, vamos ensinar a configurar seu computador com as ferramentas essencials. </p>
+    </dd>
+  </dl>
 
-<ul>
-<li>Editores de texto: Sublime Text, Komodo Edit, Vim, Emacs e Gedit são alguns exemplos de editores de texto que você poderá usar para escrever códigos e editar arquivos.</li>
-<li>Terminal (conhecido como Command Prompt em Windows): é a interface onde você vai iniciar o servidor Rails e executar comandos.</li>
-<li>Navegador (web browser) (Firefox, Safari, Chrome): para visualizar sua aplicação.</li>
-</ul>
+  <dl>
+    <dt><h2>Passo 2: <a href="application.html">Comece a codar!</a></h2></dt>
+    <dd>      
+      <p>Aprenda como desenvolver a sua primeira aplicação Rails.</p>
+    </dd>
+  </dl>
 
-<h2>
-<a id="passo-1-criando-a-aplicação" class="anchor" href="#passo-1-criando-a-aplica%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Criando a aplicação</h2>
+  <dl>
+    <dt><h2>Passo 3: <a href="customize.html">Personalize o seu projeto</a></h2></dt>
+    <dd>      
+      <p>Acrescente um pouco de personalização na sua aplicação com comentários e imagens. </p>
+    </dd>
+  </dl>
 
-<p>Vamos criar uma aplicação Rails denominada railsgirls.</p>
+  <dl>
+    <dt><h2>Passo 4: <a href="publish.html">E agora? O que mais posso fazer?</a></h2></dt>
+    <dd>      
+      <p>Publique a sua aplicação no Heroku e esteja visível para o mundo!</p>
+    </dd>
+  </dl>
 
-<p>Para começar vamos abrir o terminal:</p>
 
-<ul>
-<li>Mac OS X: Abra Spotlight, digite Terminal e clique na aplicação Terminal.</li>
-<li>Windows: Clique Start e procure Command Prompt clique Command Prompt with Ruby on Rails.</li>
-<li>Linux (Ubuntu): Procure por Terminal no dash e clique Terminal.</li>
-</ul>
 
-<p>Em seguida digite os comandos mostrados a seguir no terminal:</p>
-
-<pre><code>mkdir projects
-cd projects
-rails new railsgirls
-cd railsgirls
-rails server
-</code></pre>
-
-<p>Abra <em>http://localhost:3000</em> no seu navegador.</p>
-
-<p>Pressione <strong>CTRL-C</strong> no terminal para sair do servidor.</p>
-
-<h2>
-<a id="passo-2-criar-idea-scaffold" class="anchor" href="#passo-2-criar-idea-scaffold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 2: Criar Idea scaffold</h2>
-
-<p>Vamos usar uma funcionalidade do Rails denominada <strong>scaffold</strong> para criar um ponto de partida que nos permitirá listar, adicionar, remover, editar e ver as "coisas", no nosso caso ideas.</p>
-
-<pre><code>rails generate scaffold idea name:string description:text picture:string
-rake db:migrate
-rails server
-</code></pre>
-
-<p>Abra <em>http://localhost:3000/ideas</em> no seu navegador.</p>
-
-<h2>
-<a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Design</h2>
-
-<p>Nossa app apresenta um design bem pobre por enquanto. Vamos providenciar melhorias nesse visual. Vamos usar o projeto <strong><a href="http://getbootstrap.com/">Twitter Bootstrap</a></strong> para estilizar de uma maneira fácil nossa app.</p>
-
-<p>Abra <code>app/views/layouts/application.html.erb</code> no seu editor de texto e acima da linha:</p>
-
-<pre><code>&lt;%= stylesheet_link_tag "application" %&gt;
-</code></pre>
-
-<p>acrescente o seguinte:</p>
-
-<pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"&gt;
-</code></pre>
-
-<p>agora substitua:</p>
-
-<pre><code>&lt;%= yield %&gt;
-</code></pre>
-
-<p>por:</p>
-
-<pre><code>&lt;div class="container"&gt;
-  &lt;%= yield %&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p>Vamos criar uma barra de navegação e um rodapé para nosso layout. No mesmo arquivo, logo <strong>após</strong> a tag de abertura <strong><code>&lt;body&gt;</code></strong> acrescente:</p>
-
-<pre><code>&lt;nav class="navbar navbar-default navbar-fixed-top"&gt;
-  &lt;div class="container-fluid"&gt;
-    &lt;div class="navbar-header"&gt;
-      &lt;a class="navbar-brand" href="#"&gt;
-        Blog Rails Girls
-      &lt;/a&gt;
-    &lt;/div&gt;
-    &lt;ul class="nav navbar-nav"&gt;
-       &lt;li class="active"&gt;&lt;a href="/ideas"&gt;Ideias&lt;/a&gt;&lt;/li&gt;
-     &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p>e, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
-
-<pre><code>&lt;footer&gt;
-  &lt;hr&gt;
-  &lt;div class="container"&gt;
-    Rails Girls 2016
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-
-<p>Agora vamos alterar a estilização da tabela ideas. Abra <code>app/assets/stylesheets/application.css</code> e no final acrescente:</p>
-
-<pre><code>body { padding-top: 70px; }
-</code></pre>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://railsgirls.com/florianopolis">Rails Girls Florianópolis</a></span>
