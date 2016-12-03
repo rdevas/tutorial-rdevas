@@ -125,6 +125,84 @@ rails server
 
 <pre><code>body { padding-top: 70px; }
 </code></pre>
+      
+      
+<h2 id='step_4_adding_picture_uploads'>Passo 4: Criando mecanismo para upload de imagens</h2>
+
+<p>Vamos instalar um software que nos permita fazer upload de imagens com Rails.</p>
+
+<p>Abra <code>Gemfile</code> localizado no diretório do projeto e depois da linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span>
+</code></pre>
+</div>
+<p>acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;carrierwave&#39;</span>
+</code></pre>
+</div>
+<p><strong>Coach:</strong> Explique o que são bibliotecas e qual a sua utilidade. Fale um pouco sobre código aberto.</p>
+
+<p>No terminal execute:</p>
+<div class='highlight'><pre><code class='sh'>bundle
+</code></pre>
+</div>
+<p>A essa altura você precisa <strong>restartar o servidor Rails</strong> no terminal. Isso é necessário para que a aplicação possa carregar a biblioteca que foi adicionada.</p>
+
+<p>Agora podemos gerar o código para gerenciar uploads. No terminal execute:</p>
+<div class='highlight'><pre><code class='sh'>rails generate uploader Picture
+</code></pre>
+</div>
+<p>Abra <code>app/models/idea.rb</code> e embaixo da linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='k'>class</span> <span class='nc'>Idea</span> <span class='o'>&lt;</span> <span class='no'>ActiveRecord</span><span class='o'>::</span><span class='no'>Base</span>
+</code></pre>
+</div>
+<p>acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>mount_uploader</span> <span class='ss'>:picture</span><span class='p'>,</span> <span class='no'>PictureUploader</span>
+</code></pre>
+</div>
+<p>Abra <code>app/views/ideas/_form.html.erb</code> e altere:</p>
+<div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>text_field</span> <span class='ss'>:picture</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div>
+<p>para:</p>
+<div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>file_field</span> <span class='ss'>:picture</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div>
+<p>e</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@idea</span><span class='p'>)</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div></p>
+
+<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@idea</span><span class='p'>,</span> <span class='ss'>:html</span> <span class='o'>=&gt;</span> <span class='p'>{</span> <span class='ss'>:multipart</span> <span class='o'>=&gt;</span> <span class='kp'>true</span> <span class='p'>})</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div></p>
+
+<p>Se você tentar fazer o upload de uma imagem será mostrado  apenas o caminho para o arquivo e nada mais acontece. Vamos corrigir isso.</p>
+
+<p>Abra <code>app/views/ideas/show.html.erb</code> e altere:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div></p>
+
+<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>image_tag</span><span class='p'>(</span><span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture_url</span><span class='p'>,</span> <span class='ss'>:width</span> <span class='o'>=&gt;</span> <span class='mi'>600</span><span class='p'>)</span> <span class='k'>if</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture</span><span class='o'>.</span><span class='n'>present?</span> <span class='cp'>%&gt;</span><span class='x' />
+</code></pre>
+</div></p>
+
+<p><strong>Coach:</strong> Fale um pouco sobre HTML.</p>
+
+<h2 id='step_5_finetune_the_routes'>Passo 5: Acertos finais nos caminhos</h2>
+
+<p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</a> vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página ideas.</p>
+
+<p>No Mac OS X e Linux execute a seguinte linha de código no terminal:</p>
+<div class='highlight'><pre><code class='sh'>rm public/index.html
+</code></pre>
+</div>
+<p>No Windows execute a seguinte linha de código no command prompt:</p>
+<div class='highlight'><pre><code class='bat'><span class='k'>del</span> public\index.html
+</code></pre>
+</div>
+<p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>root</span> <span class='ss'>:to</span> <span class='o'>=&gt;</span> <span class='n'>redirect</span><span class='p'>(</span><span class='s1'>&#39;/ideas&#39;</span><span class='p'>)</span>
+</code></pre>
+</div>
 <hr>
 <br>
 <br>
