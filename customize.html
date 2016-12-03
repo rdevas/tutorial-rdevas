@@ -91,7 +91,7 @@
 <span class='x'>    &lt;p&gt;</span><span class='cp'>&lt;%=</span> <span class='n'>comment</span><span class='o'>.</span><span class='n'>body</span> <span class='cp'>%&gt;</span><span class='x'>&lt;p&gt;</span>
 <span class='x'>  &lt;/div&gt;</span>
 <span class='cp'>&lt;%</span> <span class='k'>end</span> <span class='cp'>%&gt;</span><span class='x' />
-<span class='cp'>&lt;%=</span> <span class='n'>render</span> <span class='s1'>&#39;comments/form&#39;</span> <span class='cp'>%&gt;</span><span class='x' />
+<span class='cp'>&lt;%=</span> <span class='n'>render</span> <span class='s1'>&#39;comments/form&#39; coments: @comments</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div>
 <p>Em app/controllers/ideas_controller.rb acrescente a ação mostrar logo após a linha:</p>
