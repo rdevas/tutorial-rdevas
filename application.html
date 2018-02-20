@@ -31,7 +31,8 @@
 </ul>
 
 <h2>
-<a id="passo-1-criando-a-aplicação" class="anchor" href="#passo-1-criando-a-aplica%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Criando a aplicação</h2>
+  <a id="passo-1-criando-a-aplicação" class="anchor" href="#passo-1-criando-a-aplica%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Criando a aplicação
+</h2>
 
 <p>Vamos criar uma aplicação Rails denominada railsgirls.</p>
 
@@ -45,96 +46,205 @@
 
 <p>Em seguida digite os comandos mostrados a seguir no terminal:</p>
 
-<pre><code>mkdir projects
-cd projects
-rails new railsgirls
-cd railsgirls
+<pre><code>rails new portfolio
+cd portfolio
 rails server
 </code></pre>
 
-<p>Abra <em>http://localhost:3000</em> no seu navegador.</p>
+<p>Abra <code>http://localhost:3000</code> no seu navegador.</p>
 
 <p>Pressione <strong>CTRL-C</strong> no terminal para sair do servidor.</p>
 
 <h2>
-<a id="passo-2-criar-idea-scaffold" class="anchor" href="#passo-2-criar-idea-scaffold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 2: Criar Idea scaffold</h2>
+  <a id="passo-2-criar-project-scaffold" class="anchor" href="#passo-2-criar-project-scaffold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 2: Criar Project scaffold
+</h2>
 
-<p>Vamos usar uma funcionalidade do Rails denominada <strong>scaffold</strong> para criar um ponto de partida que nos permitirá listar, adicionar, remover, editar e ver as "coisas", no nosso caso ideas.</p>
+<p>
+  Vamos usar uma funcionalidade do Rails denominada <strong>scaffold</strong> para criar um ponto
+  de partida que nos permitirá listar, adicionar, remover, editar e ver as "coisas", no nosso caso projetos.
+</p>
 
-<pre><code>rails generate scaffold idea name:string description:text picture:string
+<pre><code>rails generate scaffold project name:string description:text picture:string
 rake db:migrate
 rails server
 </code></pre>
 
-<p>Abra <em>http://localhost:3000/ideas</em> no seu navegador.</p>
+<p>Abra <code>http://localhost:3000/project</code> no seu navegador.</p>
 
 <h2>
-<a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Design</h2>
+<a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true">
+  <span aria-hidden="true" class="octicon octicon-link"></span>
+</a>Passo 3: Design</h2>
+<h3>Adicionar referencia aos estilos</h3>
 
-<p>Nossa app apresenta um design bem pobre por enquanto. Vamos providenciar melhorias nesse visual. Vamos usar o projeto <strong><a href="http://getbootstrap.com/">Twitter Bootstrap</a></strong> para estilizar de uma maneira fácil nossa app.</p>
+<p>Nossa app apresenta um design bem pobre por enquanto.
+  Vamos providenciar melhorias nesse visual.
+  Vamos usar o projeto <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
+  para estilizar de uma maneira fácil nossa app.
+</p>
 
-<p>Abra <code>app/views/layouts/application.html.erb</code> no seu editor de texto e acima da linha:</p>
-
-<pre><code>&lt;%= stylesheet_link_tag "application" %&gt;
-</code></pre>
+<p>
+  Abra <code>app/views/layouts/application.html.erb</code> no seu editor de texto e acima da linha:<br>
+  <code>&lt;%= stylesheet_link_tag "application" %&gt;</code>
+</p>
 
 <p>acrescente o seguinte:</p>
+<pre>
+  <code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code>
+</pre>
+<p>Para mais informações relacionadas ao Bootstrap, acesse <strong><a href="https://getbootstrap.com/">Bootstrap</a></strong></p>
 
-<pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"&gt;
+<h3>Criar uma barra de navegação</h3>
+<p>Agora vamos remover o estilo padrão que temos para adicionar um estilo customizado para nossa barra de navegação.</p>
+<p>Apague o arquivo <code>app/assets/stylesheets/scaffold.scss</code>.</p>
+
+<p>
+  Agora abra o arquivo <code>app/views/layouts/application.html.erb</code> e logo <strong>após</strong> a tag de abertura <strong><code>&lt;body&gt;</code></strong> acrescente:
+</p>
+
+<pre><code>&lt;header class="container py-3"&gt;
+      &lt;div class="row flex-nowrap justify-content-between align-items-center"&gt;
+        &lt;div class="col-4 pt-1"&gt;
+          &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-facebook"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-twitter"&gt;&lt;/span&gt;&lt;/a&gt;
+          &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-linkedin"&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="col-4 text-center"&gt;
+          &lt;a class="blog-header-logo text-dark" href="#"&gt;Seu Nome aqui&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="col-4 d-flex justify-content-end align-items-center"&gt;
+          &lt;a class="text-muted mr-3" href="#"&gt;Portfolio&lt;/a&gt;
+          &lt;a class="text-muted mr-3" href="#"&gt;Sobre mim&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+&lt;/code&gt;&lt;/pre&gt;
 </code></pre>
 
-<p>agora substitua:</p>
+<h3>Criar um footer</h3>
+<p>Agora vamos adicionar um outro estilo customizado para o nosso footer</p>
+<p>Ainda no mesmo arquivo, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
 
-<pre><code>&lt;%= yield %&gt;
+<pre><code>&lt;footer class="footer bg-light py-4"&gt;
+    &lt;div class="container text-center"&gt;
+      &lt;p&gt;Feito com &lt;span class="entypo-heart"&gt;&lt;/span&gt; por &lt;a href="https://twitter.com/seutwitteraqui"&gt;Seu nome aqui&lt;/a&gt;.
+      &lt;/p&gt;
+      &lt;p&gt;&lt;a href="#"&gt;Voltar para cima&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+</code></pre>
+
+<h3>Adicionar ícone de Redes Sociais</h3>
+<p>
+  Para adicionar o ícone das redes sociais,
+  basta adicionar na ultima linha do arquivo <code>app/assets/application.css</code> o código:
+</p>
+
+<pre><code>@import url(http://weloveiconfonts.com/api/?family=entypo%7Czocial);
+
+  /* entypo */
+  [class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+  }
+  /* zocial */
+  [class*="zocial-"]:before {
+      font-family: 'zocial', sans-serif;
+  }
+</code></pre>
+
+<p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
+
+<h3>Alterar a pagina inicial com seus dados</h3>
+<p>Na primeira linha do arquivo <code>app/views/projects/index.html.erb</code>, adicione o código:</p>
+
+<pre><code>&lt;section class="jumbotron text-center"&gt;
+    &lt;div class="container"&gt;
+        &lt;h1 class="jumbotron-heading"&gt;Ola! Eu sou a [seu nome aqui].&lt;/h1&gt;
+        &lt;p class="lead text-muted"&gt;Quem sou eu? Quantos anos tenho. Trabalho com o que. O que faço. Quais são os meus hobbies.
+        &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+</code></pre>
+
+<p>
+  Agora para deixar as informações mais alinhadas, no mesmo arquivo <code>app/views/projects/index.html.erb</code>, acima da linha
+  <code>&lt;p id="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;</code> adicione a tag:
+</p>
+
+<pre><code>&lt;main class="container"&gt;
+</code></pre>
+
+<p>e feche a tag main adicionando na última linha desse mesmo arquivo a tag:</p>
+
+<pre><code>&lt;/main&gt;
+</code></pre>
+
+<h3>Mostrar todos os projetos</h3>
+<p>Agora vamos alterar o layout onde será mostrado todos os projetos.</p>
+<p>Ainda no arquivo <code>app/views/projects/index.html.erb</code>, substitua o código:</p>
+<pre><code>&lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Description&lt;/th&gt;
+        &lt;th&gt;Picture&lt;/th&gt;
+        &lt;th colspan="3"&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+      &lt;% @projects.each do |project| %&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;%= project.name %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= project.description %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= project.picture %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Show', project %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Edit', edit_project_path(project) %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;% end %&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
 </code></pre>
 
 <p>por:</p>
-
-<pre><code>&lt;div class="container"&gt;
-  &lt;%= yield %&gt;
+<pre><code>&lt;div class="album"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+      &lt;% @projects.each do |project| %&gt;
+      &lt;div class="col-md-4"&gt;
+        &lt;div class="card mb-4 box-shadow"&gt;
+          &lt;%= image_tag project.picture, alt: 'Projeto', class: "card-img-top" %&gt;
+          &lt;div class="card-body"&gt;
+            &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
+            &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
+            &lt;div class="d-flex justify-content-between align-items-center"&gt;
+              &lt;%= link_to 'Show', project, class: "btn btn-sm btn-outline-secondary" %&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;% end %&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
-<p>Vamos criar uma barra de navegação e um rodapé para nosso layout. No mesmo arquivo, logo <strong>após</strong> a tag de abertura <strong><code>&lt;body&gt;</code></strong> acrescente:</p>
+<p>
+  Esse passo deixará a listagem de projetos mais organizada e bonita :)
+</p>
 
-<pre><code>&lt;nav class="navbar navbar-default navbar-fixed-top"&gt;
-  &lt;div class="container-fluid"&gt;
-    &lt;div class="navbar-header"&gt;
-      &lt;a class="navbar-brand" href="#"&gt;
-        Blog Rails Girls
-      &lt;/a&gt;
-    &lt;/div&gt;
-    &lt;ul class="nav navbar-nav"&gt;
-       &lt;li class="active"&gt;&lt;a href="/ideas"&gt;Ideias&lt;/a&gt;&lt;/li&gt;
-     &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;
-</code></pre>
-
-<p>e, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
-
-<pre><code>&lt;footer&gt;
-  &lt;hr&gt;
-  &lt;div class="container"&gt;
-    Rails Girls 2016
-  &lt;/div&gt;
-&lt;/footer&gt;
-</code></pre>
-
-<p>Agora vamos alterar a estilização da tabela ideas. Abra <code>app/assets/stylesheets/application.css</code> e no final acrescente:</p>
-
-<pre><code>body { padding-top: 70px; }
-</code></pre>
-      
-      
 <h2 id='step_4_adding_picture_uploads'>Passo 4: Criando mecanismo para upload de imagens</h2>
-
 <p>Vamos instalar um software que nos permita fazer upload de imagens com Rails.</p>
-
 <p>Abra <code>Gemfile</code> localizado no diretório do projeto e depois da linha:</p>
-<div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span>
-</code></pre>
+
+<div class='highlight'>
+  <pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span></code></pre>
 </div>
+
+<pre><code class="ruby"><span class="n">gem</span> <span class="s1">'sqlite3'</span>
+</code></pre>
+
 <p>acrescente o seguinte:</p>
 <div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;carrierwave&#39;</span>
 </code></pre>
@@ -151,15 +261,15 @@ rails server
 <div class='highlight'><pre><code class='sh'>rails generate uploader Picture
 </code></pre>
 </div>
-<p>Abra <code>app/models/idea.rb</code> e embaixo da linha:</p>
-<div class='highlight'><pre><code class='ruby'><span class='k'>class</span> <span class='nc'>Idea</span> <span class='o'>&lt;</span> <span class='no'>ActiveRecord</span><span class='o'>::</span><span class='no'>Base</span>
+<p>Abra <code>app/models/project.rb</code> e embaixo da linha:</p>
+<div class='highlight'><pre><code class='ruby'><span class='k'>class</span> <span class='nc'>project</span> <span class='o'>&lt;</span> <span class='no'>ActiveRecord</span><span class='o'>::</span><span class='no'>Base</span>
 </code></pre>
 </div>
 <p>acrescente o seguinte:</p>
 <div class='highlight'><pre><code class='ruby'><span class='n'>mount_uploader</span> <span class='ss'>:picture</span><span class='p'>,</span> <span class='no'>PictureUploader</span>
 </code></pre>
 </div>
-<p>Abra <code>app/views/ideas/_form.html.erb</code> e altere:</p>
+<p>Abra <code>app/views/project/_form.html.erb</code> e altere:</p>
 <div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>text_field</span> <span class='ss'>:picture</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div>
@@ -167,21 +277,21 @@ rails server
 <div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>file_field</span> <span class='ss'>:picture</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div>
-<p>e</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@idea</span><span class='p'>)</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
+<p>e</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@project</span><span class='p'>)</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div></p>
 
-<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@idea</span><span class='p'>,</span> <span class='ss'>:html</span> <span class='o'>=&gt;</span> <span class='p'>{</span> <span class='ss'>:multipart</span> <span class='o'>=&gt;</span> <span class='kp'>true</span> <span class='p'>})</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
+<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>form_for</span><span class='p'>(</span><span class='vi'>@project</span><span class='p'>,</span> <span class='ss'>:html</span> <span class='o'>=&gt;</span> <span class='p'>{</span> <span class='ss'>:multipart</span> <span class='o'>=&gt;</span> <span class='kp'>true</span> <span class='p'>})</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div></p>
 
 <p>Se você tentar fazer o upload de uma imagem será mostrado  apenas o caminho para o arquivo e nada mais acontece. Vamos corrigir isso.</p>
 
-<p>Abra <code>app/views/ideas/show.html.erb</code> e altere:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture</span> <span class='cp'>%&gt;</span><span class='x' />
+<p>Abra <code>app/views/project/show.html.erb</code> e altere:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='vi'>@project</span><span class='o'>.</span><span class='n'>picture</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div></p>
 
-<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>image_tag</span><span class='p'>(</span><span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture_url</span><span class='p'>,</span> <span class='ss'>:width</span> <span class='o'>=&gt;</span> <span class='mi'>600</span><span class='p'>)</span> <span class='k'>if</span> <span class='vi'>@idea</span><span class='o'>.</span><span class='n'>picture</span><span class='o'>.</span><span class='n'>present?</span> <span class='cp'>%&gt;</span><span class='x' />
+<p>para:</p><div class='highlight'><pre><code class='erb'><span class='cp'>&lt;%=</span> <span class='n'>image_tag</span><span class='p'>(</span><span class='vi'>@project</span><span class='o'>.</span><span class='n'>picture_url</span><span class='p'>,</span> <span class='ss'>:width</span> <span class='o'>=&gt;</span> <span class='mi'>600</span><span class='p'>)</span> <span class='k'>if</span> <span class='vi'>@project</span><span class='o'>.</span><span class='n'>picture</span><span class='o'>.</span><span class='n'>present?</span> <span class='cp'>%&gt;</span><span class='x' />
 </code></pre>
 </div></p>
 
@@ -189,7 +299,7 @@ rails server
 
 <h2 id='step_5_finetune_the_routes'>Passo 5: Acertos finais nos caminhos</h2>
 
-<p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</a> vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página ideas.</p>
+<p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</ vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página project.</p>
 
 <p>No Mac OS X e Linux execute a seguinte linha de código no terminal:</p>
 <div class='highlight'><pre><code class='sh'>rm public/index.html
@@ -200,20 +310,20 @@ rails server
 </code></pre>
 </div>
 <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
-<div class='highlight'><pre><code class='ruby'><span class='n'>root</span> <span class='ss'>:to</span> <span class='o'>=&gt;</span> <span class='n'>redirect</span><span class='p'>(</span><span class='s1'>&#39;/ideas&#39;</span><span class='p'>)</span>
+<div class='highlight'><pre><code class='ruby'><span class='n'>root</span> <span class='ss'>:to</span> <span class='o'>=&gt;</span> <span class='n'>redirect</span><span class='p'>(</span><span class='s1'>&#39;/project&#39;</span><span class='p'>)</span>
 </code></pre>
 </div>
 <hr>
 <br>
 <br>
 <div class="navigation">ir para o <a href="customize.html">Passo 3: Personalize o seu projeto</a></div>
-<br> 
+<br>
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
       </footer>
 
     </section>
 
-  
+
   </body>
 </html>
