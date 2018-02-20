@@ -16,7 +16,7 @@ a {
     text-decoration: underline; opacity: 0.5}
 
 h1 a, h2 a, h3 a , h4 a {
-  color: #d3360b;
+  color: #293d69;
   text-decoration: underline;
 }
 .btn {
@@ -60,7 +60,7 @@ h1 a, h2 a, h3 a , h4 a {
 .page-header {
   color: #fff;
   text-align: center;
-  background-color: #d3360b; }
+  background-color: #293d69; }
 
 @media screen and (min-width: 64em) {
   .page-header {
@@ -118,7 +118,7 @@ h1 a, h2 a, h3 a , h4 a {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
-  color: #d3360b
+  color: #293d69
     ; }
 .main-content p {
   margin-bottom: 1em; }
