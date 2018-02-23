@@ -214,7 +214,7 @@ rails server
       &lt;% @projects.each do |project| %&gt;
       &lt;div class="col-md-4"&gt;
         &lt;div class="card mb-4 box-shadow"&gt;
-          &lt;%= image_tag project.picture, alt: 'Projeto', class: "card-img-top" %&gt;
+        &lt;%= image_tag(project.picture, :class =&gt; "card-img-top") if project.picture.present? %&gt;
           &lt;div class="card-body"&gt;
             &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
             &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
