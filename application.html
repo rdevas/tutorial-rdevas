@@ -262,11 +262,11 @@ rails server</code></pre>
 
     <pre><code>mount_uploader :picture, PictureUploader</code></pre>
 
-    <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitúa: <code>&lt;%= f.text_field :picture %&gt;</code>
+    <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitúa: <code>&lt;%= form.text_field :picture %&gt;</code>
     </p>
 
     <p>para:</p>
-    <pre><code>&lt;%= f.file_field :picture %&gt;</code></pre>
+    <pre><code>&lt;%= form.text_field :picture, id: :project_picture %&gt;</code></pre>
 
     <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_for(@project) do |f| %&gt;></code></pre>
     </p>
