@@ -17,20 +17,25 @@
 
   <section class="main-content">
     <h1>
-      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Publique seu projeto na internet!</h1>
+      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Publique seu projeto na internet!
+    </h1>
 
-      <h3 id='get_heroku'>Instalando Heroku</h3>
+    <h2 id='get_heroku'>Instalando Heroku</h2>
 
-      <p>Entre no site Heroku e siga os passos  1 até 3 do <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a> to sign up (cadastrar), install the toolbelt (instalar a ferramenta), e realizar o login.</p>
+    <p>Entre no site Heroku e siga os passos 1 até 3 do <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
+      to sign up (cadastrar), install the toolbelt (instalar a ferramenta), e realizar o login.
+    </p>
 
-      <h3 id='preparing_your_app'>Preparando sua  app</h3>
+    <h2 id='preparing_your_app'>Preparando sua aplicação</h2>
 
-      <h4 id='updating_our_database'>Atualização do banco de dados</h4>
+    <h3 id='updating_our_database'>Atualização do banco de dados</h3>
 
-      <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma  Heroku, que usa um banco de dados diferente. Altere o seguinte em Gemfile:</p>
-      <div class='highlight'><pre><code class='ruby'><span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span>
-      </code></pre>
-    </div>
+    <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma Heroku, que usa um banco de dados diferente, chamado PostgreSQL.</p>
+    <p>Altere o seguinte em Gemfile:</p>
+
+    <pre><code>gem &#39;sqlite3&#39;</code></pre>
+
+
     <p>para</p>
     <div class='highlight'><pre><code class='ruby'><span class='n'>group</span> <span class='ss'>:development</span> <span class='k'>do</span>
       <span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span>
@@ -43,18 +48,22 @@
   <p>Rode  <code>bundle install --without production</code> para configurar suas dependências.</p>
 
 
-  <h4 id='version_control_systems'>Sistema de controle de versões</h4>
+  <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
+
+  <h3 id='version_control_systems'>Sistema de controle de versões</h3>
 
   <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código::</p>
   <div class='highlight'><pre><code class='sh'>git init
     git add .
     git commit -m <span class='s2'>&quot;initial commit&quot;</span>
   </code></pre>
-</div>
+  </div>
 
-<h3 id='deploying_your_app'>Publicando sua app</h3>
 
-<h4 id='app_creation'>Criação da App</h4>
+
+<h2 id='deploying_your_app'>Publicando sua app</h2>
+
+<h3 id='app_creation'>Criação da App</h3>
 
 <p>Precisamos criar nossa aplicação heroku  digitando<code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
 <div class='highlight'><pre><code class='sh'>Creating evening-sky-7498... <span class='k'>done</span>, stack is cedar
@@ -64,7 +73,7 @@
 </div>
 <p>Nesse caso &#8220;evening-sky-7498&#8221; é o nome da sua app.</p>
 
-<h4 id='pushing_the_code'>Fazendo o pushing do código</h4>
+<h3 id='pushing_the_code'>Fazendo o pushing do código</h3>
 
 <p>A seguir precisamos fazer o push do código para o  heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
 <div class='highlight'><pre><code class='sh'>Counting objects: 134, <span class='k'>done</span>.
@@ -85,7 +94,7 @@
 </div>
 <p>O processo estar-a terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
 
-<h4 id='migrate_database'>Migrando o banco de dados</h4>
+<h3 id='migrate_database'>Migrando o banco de dados</h3>
 
 <p>Precisamos migrar nosso banco de dados tal como fizemos localmente durante esse workshop: <code>heroku run rake db:migrate</code></p>
 
