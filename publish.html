@@ -17,99 +17,87 @@
 
   <section class="main-content">
     <h1>
-      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 3: Publique seu projeto na internet!
+      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true">
+        <span aria-hidden="true" class="octicon octicon-link"></span>
+      </a>
+      Passo 3: Publique seu projeto na internet!
     </h1>
 
     <h2 id='get_heroku'>Instalando Heroku</h2>
-
     <p>Entre no site Heroku e siga os passos 1 até 3 do <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
       to sign up (cadastrar), install the toolbelt (instalar a ferramenta), e realizar o login.
     </p>
 
     <h2 id='preparing_your_app'>Preparando sua aplicação</h2>
-
     <h3 id='updating_our_database'>Atualização do banco de dados</h3>
-
     <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma Heroku, que usa um banco de dados diferente, chamado PostgreSQL.</p>
-    <p>Altere o seguinte em Gemfile:</p>
 
+    <p>Altere o seguinte em Gemfile:</p>
     <pre><code>gem &#39;sqlite3&#39;</code></pre>
 
-
     <p>para</p>
-    <div class='highlight'><pre><code class='ruby'><span class='n'>group</span> <span class='ss'>:development</span> <span class='k'>do</span>
-      <span class='n'>gem</span> <span class='s1'>&#39;sqlite3&#39;</span>
-      <span class='k'>end</span>
-      <span class='n'>group</span> <span class='ss'>:production</span> <span class='k'>do</span>
-      <span class='n'>gem</span> <span class='s1'>&#39;pg&#39;</span>
-      <span class='k'>end</span>
-    </code></pre>
-  </div>
-  <p>Rode  <code>bundle install --without production</code> para configurar suas dependências.</p>
+    <pre><code>group :development do
+  gem 'sqlite3'
+  end
+  group :production do
+  gem 'pg'
+end</code></pre>
 
+    <p>Rode <code>bundle install --without production</code> para configurar suas dependências.</p>
 
-  <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
+    <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
 
-  <h3 id='version_control_systems'>Sistema de controle de versões</h3>
+    <h3 id='version_control_systems'>Sistema de controle de versões - Git</h3>
+    <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código:</p>
+    <pre><code>git init</code></pre>
+    <pre><code>git add .</code></pre>
+    <pre><code>git commit -m "initial commit"</code></pre>
 
-  <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código::</p>
-  <div class='highlight'><pre><code class='sh'>git init
-    git add .
-    git commit -m <span class='s2'>&quot;initial commit&quot;</span>
-  </code></pre>
-  </div>
+    <h5>Para entender mais sobre o git, acesse <a href="https://git-scm.com/">Git scm</a></h5>
 
+    <h2 id='deploying_your_app'>Publicando sua app</h2>
+    <h3 id='app_creation'>Criação da App</h3>
+    <p>Precisamos criar nossa aplicação heroku  digitando <code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
+    <pre><code>Creating evening-sky-7498... done, stack is cedar
+http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
+Git remote heroku added</code></pre>
 
+  <p>Nesse caso "evening-sky-7498" é o nome da sua app.</p>
 
-<h2 id='deploying_your_app'>Publicando sua app</h2>
+  <h3 id='pushing_the_code'>Fazendo o pushing do código</h3>
+  <p>A seguir precisamos fazer o push do código para o  heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
+  <pre><code>Counting objects: 134, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (115/115), done.
+Writing objects: 100% (134/134), 35.29 KiB, done.
+Total 134 (delta 26), reused 0 (delta 0)
 
-<h3 id='app_creation'>Criação da App</h3>
+-----&gt; Heroku receiving push
+-----&gt; Ruby/Rails app detected
+-----&gt; Installing dependencies using Bundler version 1.1.2
+Running: bundle install --without development:test --path vendor/bundle --binstubs bin/ --deployment
+Fetching gem metadata from https://rubygems.org/.......
+...
+-----&gt; Launching... done, v4
+http://evening-sky-7498.herokuapp.com deployed to Heroku</code></pre>
 
-<p>Precisamos criar nossa aplicação heroku  digitando<code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
-<div class='highlight'><pre><code class='sh'>Creating evening-sky-7498... <span class='k'>done</span>, stack is cedar
-  http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
-  Git remote heroku added
-</code></pre>
-</div>
-<p>Nesse caso &#8220;evening-sky-7498&#8221; é o nome da sua app.</p>
+  <p>O processo estar-a terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
 
-<h3 id='pushing_the_code'>Fazendo o pushing do código</h3>
+  <h3 id='migrate_database'>Migrando o banco de dados</h3>
+  <p>Precisamos migrar nosso banco de dados tal como fizemos localmente durante esse workshop:</p>
+  <pre><code>heroku run rake db:migrate</code></pre>
 
-<p>A seguir precisamos fazer o push do código para o  heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
-<div class='highlight'><pre><code class='sh'>Counting objects: 134, <span class='k'>done</span>.
-  Delta compression using up to 4 threads.
-  Compressing objects: 100% <span class='o'>(</span>115/115<span class='o'>)</span>, <span class='k'>done</span>.
-  Writing objects: 100% <span class='o'>(</span>134/134<span class='o'>)</span>, 35.29 KiB, <span class='k'>done</span>.
-  Total 134 <span class='o'>(</span>delta 26<span class='o'>)</span>, reused 0 <span class='o'>(</span>delta 0<span class='o'>)</span>
-
-  -----&gt; Heroku receiving push
-  -----&gt; Ruby/Rails app detected
-  -----&gt; Installing dependencies using Bundler version 1.1.2
-  Running: bundle install --without development:test --path vendor/bundle --binstubs bin/ --deployment
-  Fetching gem metadata from https://rubygems.org/.......
-  ...
-  -----&gt; Launching... <span class='k'>done</span>, v4
-  http://evening-sky-7498.herokuapp.com deployed to Heroku
-</code></pre>
-</div>
-<p>O processo estar-a terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
-
-<h3 id='migrate_database'>Migrando o banco de dados</h3>
-
-<p>Precisamos migrar nosso banco de dados tal como fizemos localmente durante esse workshop: <code>heroku run rake db:migrate</code></p>
-
-<p>Depois que  esse comando for executado você poderá acessar a app na sua URL. Para a plicação que desenvolvemos nesse exemplo abra: <a href='http://evening-sky-7498.herokuapp.com'>http://evening-sky-7498.herokuapp.com/</a>. Opcionalmente, para visitar a página, você pode executar <code>heroku open</code> no terminal .</p>
-</div>
-</article>
-
-<hr>
-<br>
-<br>
-<div><a href="index.html">Voltar para o início </a></div>
-<br>
-<footer class="site-footer">
-  <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
-</footer>
+  <p>Depois que  esse comando for executado você poderá acessar a app na sua URL.</p>
+  <p>Para a plicação que desenvolvemos nesse exemplo abra: <a href='http://evening-sky-7498.herokuapp.com'>http://evening-sky-7498.herokuapp.com/</a>.</p>
+  <p>Opcionalmente, para visitar a página, você pode executar <code>heroku open</code> no terminal.</p>
+  <hr>
+  <br>
+  <br>
+  <div><a href="index.html">Voltar para o início</a></div>
+  <br>
+  <footer class="site-footer">
+    <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
+  </footer>
 
 </section>
 
