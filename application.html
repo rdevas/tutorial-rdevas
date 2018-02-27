@@ -279,14 +279,14 @@ rails server</code></pre>
     <p>Abra <code>app/views/project/show.html.erb</code> e altere:</p>
     <pre><code>&lt;%= @project.picture %&gt;</code></pre>
 
-  <p>para:</p>
-  <pre><code>&lt;%= image_tag(@project.picture, :width =&gt; 600) if @project.picture.present? %&gt;</code></pre>
+    <p>para:</p>
+    <pre><code>&lt;%= image_tag(@project.picture, :width =&gt; 600) if @project.picture.present? %&gt;</code></pre>
 
-  <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
+    <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
 
-  <h2 id='step_5_finetune_the_routes'>Passo 5: Acertos finais nos caminhos</h2>
+    <h2 id='step_5_finetune_the_routes'>Passo 5: Acertos finais nos caminhos</h2>
 
-  <p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</ vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página project.</p>
+    <p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</ vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página project.</p>
 
     <p>No Mac OS X e Linux execute a seguinte linha de código no terminal:</p>
     <pre><code>rm public/index.html
