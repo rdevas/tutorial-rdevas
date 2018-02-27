@@ -284,26 +284,17 @@ rails server</code></pre>
 
     <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
 
-    <h2 id='step_5_finetune_the_routes'>Passo 5: Acertos finais nos caminhos</h2>
+    <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
 
-    <p>Se você abrir <a href='http://localhost:3000'>http://localhost:3000</ vai continuar vendo a página padrão. Vamos fazer um redirecionamento para a página project.</p>
-
-    <p>No Mac OS X e Linux execute a seguinte linha de código no terminal:</p>
-    <pre><code>rm public/index.html
-    </code></pre>
-
-    <p>No Windows execute a seguinte linha de código no command prompt:</p>
-    <pre><code><span class='k'>del</span> public\index.html
-    </code></pre>
+    <p>Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão. Agora vamos fazer um redirecionamento para a página project.</p>
 
     <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
-    <pre><code><span class='n'>root</span> <span class='ss'>:to</span> <span class='o'>=&gt;</span> <span class='n'>redirect</span><span class='p'>(</span><span class='s1'>&#39;/project&#39;</span><span class='p'>)</span>
-    </code></pre>
+    <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
 
     <hr>
     <br>
     <br>
-    <div class="navigation">ir para o <a href="customize.html">Passo 3: Personalize o seu projeto</a></div>
+    <div class="navigation">ir para o <a href="customize.html">Capítulo 3: Personalize o seu projeto</a></div>
     <br>
 
     <footer class="site-footer">
