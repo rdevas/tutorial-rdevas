@@ -268,11 +268,11 @@ rails server</code></pre>
     <p>para:</p>
     <pre><code>&lt;%= form.text_field :picture, id: :project_picture %&gt;</code></pre>
 
-    <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_for(@project) do |f| %&gt;></code></pre>
+    <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_with(model: project, local: true) do |form| %&gt;></code></pre>
     </p>
 
     <p>para:
-      <pre><code>&lt;%= form_for(@project, :html => { :multipart => true }) do |f| %&gt;</code></pre>
+      <pre><code>&lt;%= form_for(project, :html => { :multipart => true }) do |form| %&gt;</code></pre>
     </p>
 
     <p>Se você tentar fazer o upload de uma imagem será mostrado  apenas o caminho para o arquivo e nada mais acontece. Vamos corrigir isso.</p>
