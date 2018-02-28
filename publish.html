@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Rails RDevas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Rails RDevas</h1>
-      <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <title>Rails RDevas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+</head>
+<body>
+  <section class="page-header">
+    <h1 class="project-name">Rails RDevas</h1>
+    <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
+  </section>
 
-    <section class="main-content">
-      <h1>
-        <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true">
-          <span aria-hidden="true" class="octicon octicon-link"></span>
-        </a>
-        Capítulo 3: Publique seu projeto na internet!
-      </h1>
+  <section class="main-content">
+    <h1>
+      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true">
+        <span aria-hidden="true" class="octicon octicon-link"></span>
+      </a>
+      Capítulo 3: Publique seu projeto na internet!
+    </h1>
 
-      <h2 id='get_heroku'>Instalando Heroku</h2>
-      <p>Entre no site Heroku e siga os passos 1 até 3 do <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
-        to sign up (cadastrar), install the toolbelt (instalar a ferramenta), e realizar o login.
-      </p>
+    <h2 id='get_heroku'>Instalando Heroku</h2>
+    <p>Entre no site Heroku e siga os passos 1 até 3 do <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
+      to sign up (cadastrar), install the toolbelt (instalar a ferramenta), e realizar o login.
+    </p>
 
-      <h2 id='preparing_your_app'>Preparando sua aplicação</h2>
-      <h3 id='updating_our_database'>Atualização do banco de dados</h3>
-      <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma Heroku, que usa um banco de dados diferente, chamado PostgreSQL.</p>
+    <h2 id='preparing_your_app'>Preparando sua aplicação</h2>
+    <h3 id='updating_our_database'>Atualização do banco de dados</h3>
+    <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma Heroku, que usa um banco de dados diferente, chamado PostgreSQL.</p>
 
-      <p>Altere o seguinte em Gemfile:</p>
-      <pre><code>gem &#39;sqlite3&#39;</code></pre>
+    <p>Altere o seguinte em Gemfile:</p>
+    <pre><code>gem &#39;sqlite3&#39;</code></pre>
 
-      <p>para</p>
-      <pre><code>group :development do
-    gem 'sqlite3'
-    end
-    group :production do
-    gem 'pg'
-  end</code></pre>
+    <p>para</p>
+    <pre><code>group :development do
+gem 'sqlite3'
+end
+group :production do
+gem 'pg'
+end</code></pre>
 
-      <p>Rode <code>bundle install --without production</code> para configurar suas dependências.</p>
+    <p>Rode <code>bundle install --without production</code> para configurar suas dependências.</p>
 
-      <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
+    <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
 
-      <h3 id='version_control_systems'>Sistema de controle de versões - Git</h3>
-      <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código:</p>
-      <pre><code>git init</code></pre>
-      <pre><code>git add .</code></pre>
-      <pre><code>git commit -m "initial commit"</code></pre>
+    <h3 id='version_control_systems'>Sistema de controle de versões - Git</h3>
+    <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código:</p>
+    <pre><code>git init</code></pre>
+    <pre><code>git add .</code></pre>
+    <pre><code>git commit -m "initial commit"</code></pre>
 
-      <h5>Para entender mais sobre o git, acesse <a href="https://git-scm.com/">Git scm</a></h5>
+    <h5>Para entender mais sobre o git, acesse <a href="https://git-scm.com/">Git scm</a></h5>
 
-      <h2 id='deploying_your_app'>Publicando sua app</h2>
-      <h3 id='app_creation'>Criação da App</h3>
-      <p>Precisamos criar nossa aplicação heroku  digitando <code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
-      <pre><code>Creating evening-sky-7498... done, stack is cedar
-  http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
-  Git remote heroku added</code></pre>
+    <h2 id='deploying_your_app'>Publicando sua app</h2>
+    <h3 id='app_creation'>Criação da App</h3>
+    <p>Precisamos criar nossa aplicação heroku  digitando <code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
+    <pre><code>Creating evening-sky-7498... done, stack is cedar
+      http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
+      Git remote heroku added</code></pre>
 
     <p>Nesse caso "evening-sky-7498" é o nome da sua app.</p>
 
     <h3 id='pushing_the_code'>Fazendo o pushing do código</h3>
     <p>A seguir precisamos fazer o push do código para o  heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
     <pre><code>Counting objects: 134, done.
-  Delta compression using up to 4 threads.
-  Compressing objects: 100% (115/115), done.
-  Writing objects: 100% (134/134), 35.29 KiB, done.
-  Total 134 (delta 26), reused 0 (delta 0)
+Delta compression using up to 4 threads.
+Compressing objects: 100% (115/115), done.
+Writing objects: 100% (134/134), 35.29 KiB, done.
+Total 134 (delta 26), reused 0 (delta 0)
 
-  -----&gt; Heroku receiving push
-  -----&gt; Ruby/Rails app detected
-  -----&gt; Installing dependencies using Bundler version 1.1.2
-  Running: bundle install --without development:test --path vendor/bundle --binstubs bin/ --deployment
-  Fetching gem metadata from https://rubygems.org/.......
-  ...
-  -----&gt; Launching... done, v4
-  http://evening-sky-7498.herokuapp.com deployed to Heroku</code></pre>
+-----&gt; Heroku receiving push
+-----&gt; Ruby/Rails app detected
+-----&gt; Installing dependencies using Bundler version 1.1.2
+Running: bundle install --without development:test --path vendor/bundle --binstubs bin/ --deployment
+Fetching gem metadata from https://rubygems.org/.......
+...
+-----&gt; Launching... done, v4
+http://evening-sky-7498.herokuapp.com deployed to Heroku</code></pre>
 
     <p>O processo estar-a terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
 
