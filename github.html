@@ -23,25 +23,62 @@
       Capítulo 2: Controlando as versões usando Github
     </h1>
 
-    <h2 id='get_heroku'>Abc</h2>
-    <p>
-      123 <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
+    <h2 id='get_heroku'>O que você precisa antes de começar</h2>
+
+    <h2>
+      Passo 1: Instalando o Github
+    </h2>
+
+    <p>Crie uma conta gratuita no <a href="www.github.com">GitHub</a> ou logue se você já possui uma.</p>
+
+    <p>Instale o Git específico para o seu Sistema Operacional <a href="http://git-scm.com/downloads">aqui.</a></p>
+
+    <p>Verifique se o Git foi instalado corretamente. No terminal, digite o seguinte:</p>
+    <pre><code>git --version</code></pre>
+
+    <p>Deverá retornar a versão do Git instalada, como abaixo:
+    <pre><code>git version 2.16.2</code></pre>
+
+    <h2>
+      Passo 2: Configurando o Github
+    </h2>
+
+    <p>Configure seu perfil Git na sua máquina. No terminal digite:</p>
+    <pre><code>git config --global user.name "user-do-seu-github"</code></pre>
+
+    <p>Em seguida, digite:</p>
+    <pre><code>git config --global user.email "seu-email-usado-no-github"</code></pre>
+
+    <p>Para checar se o Git já está configurado, você pode digitar:</p>
+    <pre><code>git config --list</code></pre>
+
+    <h2>
+      Passo 3: Envie seu app para o GitHub
+    </h2>
+
+    <p>No seu perfil do GitHub clique em "new repo"
+      <img src="https://f.cloud.github.com/assets/2623954/595307/eb70c6cc-caf2-11e2-9d2d-60deb31ac049.png">
+      e dê um nome (exemplo: portfolio), breve descrição, escolha a opção "público", e clique em "Criar repositório".
     </p>
 
-    <h2 id='preparing_your_app'>abcd</h2>
-    <h3 id='updating_our_database'>12345</h3>
-    <p>Parafrago</p>
+    <p>No terminal, acesse a pasta raiz do seu projeto</p>
+    <pre><code>cd portfolio</code></pre>
 
-    <p>Paragrafo com código:</p>
-    <pre><code>gem &#39;sqlite3&#39;</code></pre>
+    <p>E digite o comando abaixo para inicializar um repositório Git no seu projeto</p>
+    <pre><code>git init</code></pre>
 
-    <p>para</p>
-    <pre><code>group :development do
-  gem 'sqlite3'
-  end
-  group :production do
-  gem 'pg'
-end</code></pre>
+    <p>
+      Para verificar se o repositório Git foi iniciado corretamente no seu projeto, verifique se o arquivo
+      <code>README.md</code> existe na pasta <code>portfolio</code> .
+    </p>
+    <p>No Sistema Operacional Linux ou Mac, digite no terminal:</p>
+    <pre><code>ls README.md</code></pre>
+
+
+
+
+
+
 
 
   <hr>
