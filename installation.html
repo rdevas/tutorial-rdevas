@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Rails RDevas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Rails RDevas</h1>
-      <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <title>Rails RDevas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+</head>
+<body>
+  <section class="page-header">
+    <h1 class="project-name">Rails RDevas</h1>
+    <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
+  </section>
 
-    <section class="main-content">
-      <h1>
-<a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Ruby on Rails - Primeiros Passos</h1>
+  <section class="main-content">
+    <h1>
+      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+      Capítulo 1: Ruby on Rails - Primeiros Passos
+    </h1>
 
-<hr>
+    <hr>
+    <h2>
+      <a id="introdução-conhecendo-as-ferramentas" class="anchor" href="#introdu%C3%A7%C3%A3o-conhecendo-as-ferramentas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+      Introdução: Conhecendo as ferramentas
+    </h2>
+    <p>Antes de começar a construir suas aplicações com Ruby on Rails, você deverá instalar na sua máquina alguns softwares e o respectivo ambiente de desenvolvimento.</p>
 
-<h2>
-<a id="introdução-conhecendo-as-ferramentas" class="anchor" href="#introdu%C3%A7%C3%A3o-conhecendo-as-ferramentas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introdução: Conhecendo as ferramentas</h2>
+    <h3>Instalação em ambiente Windows</h3>
+    <p>Baixe os seguintes arquivos e execute cada um deles. Siga as instruções com as configurações padrão que aparecerão na janela. </p>
+    <ul>
+      <li><a href="https://s3.amazonaws.com/railsinstaller/Windows/railsinstaller-3.1.1.exe">Instalador do Rails</a></li>
+      <li><a href="https://download.sublimetext.com/Sublime%20Text%20Build%203126%20x64%20Setup.exe">Instalador do Sublime Text 3</a></li>
+    </ul>
+    <p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
 
-<p>Antes de começar a construir suas aplicações com Ruby on Rails, você deverá instalar, na sua máquina, alguns softwares e o respectivo ambiente de desenvolvimento.</p>
+    <hr>
+    <h3>Instalação em ambiente Ubuntu</h3>
+    <p>Para instalar Ruby on Rails copie e cole no Terminal, a linha de comando mostrada abaixo e pressione "Enter".
+      Observe o texto que se apresenta na tela. Isso pode demandar algum tempo.
+      Recomendamos que você esfrie a cabeça e se delicie com uma bebida refrescante antes de iniciar a instalação!
+    </p>
 
-<h3>Instalação em ambiente Windows</h3>
+    <pre><code>bash < <(curl -s https://raw.github.com/railsgirls/installation-scripts/master/rails-install-ubuntu.sh)</code></pre>
 
-<p>Baixe os seguintes arquivos e execute cada um deles. Siga as instruções com as configurações padrão que aparecerão na janela. </p>
-<ul>
-  <li><a href="https://s3.amazonaws.com/railsinstaller/Windows/railsinstaller-3.1.1.exe">Instalador do Rails</a></li>
-  <li><a href="https://download.sublimetext.com/Sublime%20Text%20Build%203126%20x64%20Setup.exe">Instalador do Sublime Text 3</a></li>
-</ul>
+    <p>Último passo. Instale um editor de texto para editar seus arquivos. Para o evento nós recomendamos o editor Sublime Text.</p>
+    <a href="http://www.sublimetext.com">Download e instalação do Sublime Text</a>
+    <p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
 
-<p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
+    <hr>
+    <h3>Instalação em ambiente OS</h3>
+    <p>Faça o download do RailsInstaller para a versão do seu sistema operacional.</p>
 
-<hr>
-<h3>Instalação em ambiente Ubuntu</h3>
+    <ul>
+      <li>
+        <p><a href='https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg'>RailsInstaller para as versões 10.7 e 10.8 </a><span class='muted'>(325MB)</span></p>
+      </li>
+      <li>
+        <p><a href='https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg'>RailsInstaller para a versão 10.6</a> <span class='muted'>(224Mb)</span></p>
+      </li>
+    </ul>
 
-<p>Para instalar Ruby on Rails copie e cole no Terminal, a linha de comando mostrada abaixo e pressione "Enter". Observe o texto que se apresenta na tela. Isso pode demandar algum tempo. Recomendamos que você esfrie a cabeça e se delicie com uma bebida refrescante antes de iniciar a instalação!</p>
+    <p>Dê um  duplo clique no arquivo que você baixou e ele será descomprimido no diretório corrente (onde se encontra).
+      Localize o arquivo <code>RailsInstaller-1.0.3-osx-10.7.app</code> ou <code>RailsInstaller-1.0.3-osx-10.6.app</code> dê um duplo clique nele e siga as instruções.
+      Existe um arquivo README com o título <code>Rails Installer OS X</code>.
+      Por favor <strong>ignore</strong> as instruções contidas nesse arquivo.
+    </p>
+    <p><strong>Último passo.</strong> Instale um editor de texto para editar seus arquivos. Para o evento nós recomendamos o editor Sublime Text.</p>
 
-<pre><code>bash < <(curl -s https://raw.github.com/railsgirls/installation-scripts/master/rails-install-ubuntu.sh)</code></pre>
+    <ul>
+      <li><a href="http://www.sublimetext.com/2">Download e instalação do Sublime Text</a></li>
+    </ul>
+    <p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
 
-<p>Último passo. Instale um editor de texto para editar seus arquivos. Para o evento nós recomendamos o editor Sublime Text.</p>
+    <hr>
+    <br>
+    <div><a href="index.html">Voltar para o início</a></div>
+    <div class="navigation">ir para o <a href="application.html">Capítulo 2: Comece a codar!</a></div>
+    <br>
 
+    <footer class="site-footer">
+      <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
+    </footer>
 
-<a href="http://www.sublimetext.com">Download e instalação do Sublime Text</a>
-
-<p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
-<hr>
-
-<h3>Instalação em ambiente OS</h3>
-<p>Faça o download do RailsInstaller para a versão do seu sistema operacional.</p>
-
-<ul>
-<li>
-<p><a href='https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.7-v2.pkg'>RailsInstaller para as versões 10.7 e 10.8 </a><span class='muted'>(325MB)</span></p>
-</li>
-
-<li>
-<p><a href='https://github.com/downloads/kennethreitz/osx-gcc-installer/GCC-10.6.pkg'>RailsInstaller para a versão 10.6</a> <span class='muted'>(224Mb)</span></p>
-</li>
-</ul>
-
-<p>Dê um  duplo clique no arquivo que você baixou e ele será descomprimido no diretório corrente (onde se encontra). Localize o arquivo &lsquo;RailsInstaller-1.0.3-osx-10.7.app&rsquo; ou &lsquo;RailsInstaller-1.0.3-osx-10.6.app&rsquo; dê um duplo clique nele e siga as instruções. Existe um arquivo README com o título &lsquo;Rails Installer OS X&rsquo;. Por favor <strong>ignore</strong> as instruções contidas nesse arquivo.</p>
-
-<p><strong>Último passo.</strong> Instale um editor de texto para editar seus arquivos. Para o evento nós recomendamos o editor Sublime Text.</p>
-
-<ul>
-  <li><a href="http://www.sublimetext.com/2">Download e instalação do Sublime Text</a></li>
-</ul>
-<p>Pronto. Você agora está com um ambiente de desenvolvimento Ruby on Rails instalado em sua máquina. Parabéns!</p>
-
-
-<hr>
-<br>
-<br>
-<div class="navigation">ir para o <a href="application.html">Passo 2: Comece a codar!</a></div>
-<br>
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
-      </footer>
-
-    </section>
-
-  
-  </body>
+  </section>
+</body>
 </html>

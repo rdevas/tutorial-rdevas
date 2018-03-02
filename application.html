@@ -1,306 +1,306 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="UTF-8">
-  <title>Rails RDevas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-</head>
-<body>
-  <section class="page-header">
-    <h1 class="project-name">Rails RDevas</h1>
-    <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
-  </section>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rails RDevas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Rails RDevas</h1>
+      <h2 class="project-tagline">Tutorial de aplicação para o Rails RDevas</h2>
+    </section>
 
-  <section class="main-content">
-    <h1>
-      <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true">
-        <span aria-hidden="true" class="octicon octicon-link"></span>
-      </a>Capítulo 2: Comece a codar!
-    </h1>
+    <section class="main-content">
+      <h1>
+        <a id="desenvolva-a-sua-primeira-aplicação-rails" class="anchor" href="#desenvolva-a-sua-primeira-aplica%C3%A7%C3%A3o-rails" aria-hidden="true">
+          <span aria-hidden="true" class="octicon octicon-link"></span>
+        </a>Capítulo 2: Comece a codar!
+      </h1>
 
-    <hr>
+      <hr>
 
-    <h2>
-      <a id="introdução-conhecendo-as-ferramentas" class="anchor" href="#introdu%C3%A7%C3%A3o-conhecendo-as-ferramentas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introdução: Conhecendo as ferramentas
-    </h2>
+      <h2>
+        <a id="introdução-conhecendo-as-ferramentas" class="anchor" href="#introdu%C3%A7%C3%A3o-conhecendo-as-ferramentas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introdução: Conhecendo as ferramentas
+      </h2>
 
-    <ul>
-      <li>Editores de texto: Sublime Text, Komodo Edit, Vim, Emacs e Gedit são alguns exemplos de editores de texto que você poderá usar para escrever códigos e editar arquivos.</li>
-      <li>Terminal (conhecido como Command Prompt em Windows): é a interface onde você vai iniciar o servidor Rails e executar comandos.</li>
-      <li>Navegador (web browser) (Firefox, Safari, Chrome): para visualizar sua aplicação.</li>
-    </ul>
+      <ul>
+        <li>Editores de texto: Sublime Text, Komodo Edit, Vim, Emacs e Gedit são alguns exemplos de editores de texto que você poderá usar para escrever códigos e editar arquivos.</li>
+        <li>Terminal (conhecido como Command Prompt em Windows): é a interface onde você vai iniciar o servidor Rails e executar comandos.</li>
+        <li>Navegador (web browser) (Firefox, Safari, Chrome): para visualizar sua aplicação.</li>
+      </ul>
 
-    <h2>
-      <a id="passo-1-criando-a-aplicação" class="anchor" href="#passo-1-criando-a-aplica%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Criando a aplicação
-    </h2>
+      <h2>
+        <a id="passo-1-criando-a-aplicação" class="anchor" href="#passo-1-criando-a-aplica%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 1: Criando a aplicação
+      </h2>
 
-    <p>Vamos criar uma aplicação Rails denominada railsgirls.</p>
+      <p>Vamos criar uma aplicação Rails denominada railsgirls.</p>
 
-    <p>Para começar vamos abrir o terminal:</p>
+      <p>Para começar vamos abrir o terminal:</p>
 
-    <ul>
-      <li>Mac OS X: Abra Spotlight, digite Terminal e clique na aplicação Terminal.</li>
-      <li>Windows: Clique Start e procure Command Prompt clique Command Prompt with Ruby on Rails.</li>
-      <li>Linux (Ubuntu): Procure por Terminal no dash e clique Terminal.</li>
-    </ul>
+      <ul>
+        <li>Mac OS X: Abra Spotlight, digite Terminal e clique na aplicação Terminal.</li>
+        <li>Windows: Clique Start e procure Command Prompt clique Command Prompt with Ruby on Rails.</li>
+        <li>Linux (Ubuntu): Procure por Terminal no dash e clique Terminal.</li>
+      </ul>
 
-    <p>Em seguida digite os comandos mostrados a seguir no terminal:</p>
+      <p>Em seguida digite os comandos mostrados a seguir no terminal:</p>
 
-    <pre><code>rails new portfolio
-cd portfolio
-rails server</code></pre>
+      <pre><code>rails new portfolio
+  cd portfolio
+  rails server</code></pre>
 
-    <p>Abra <code>http://localhost:3000</code> no seu navegador.</p>
+      <p>Abra <code>http://localhost:3000</code> no seu navegador.</p>
 
-    <p>Pressione <strong>CTRL-C</strong> no terminal para sair do servidor.</p>
+      <p>Pressione <strong>CTRL-C</strong> no terminal para sair do servidor.</p>
 
-    <h2>
-      <a id="passo-2-criar-project-scaffold" class="anchor" href="#passo-2-criar-project-scaffold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 2: Criar Project scaffold
-    </h2>
+      <h2>
+        <a id="passo-2-criar-project-scaffold" class="anchor" href="#passo-2-criar-project-scaffold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Passo 2: Criar Project scaffold
+      </h2>
 
-    <p>
-      Vamos usar uma funcionalidade do Rails denominada <strong>scaffold</strong> para criar um ponto
-      de partida que nos permitirá listar, adicionar, remover, editar e ver as "coisas", no nosso caso projetos.
-    </p>
+      <p>
+        Vamos usar uma funcionalidade do Rails denominada <strong>scaffold</strong> para criar um ponto
+        de partida que nos permitirá listar, adicionar, remover, editar e ver as "coisas", no nosso caso projetos.
+      </p>
 
-    <pre><code>rails generate scaffold project name:string description:text picture:string
-rake db:migrate
-rails server</code></pre>
+      <pre><code>rails generate scaffold project name:string description:text picture:string
+  rake db:migrate
+  rails server</code></pre>
 
-    <p>Abra <code>http://localhost:3000/projects</code> no seu navegador.</p>
+      <p>Abra <code>http://localhost:3000/projects</code> no seu navegador.</p>
 
-    <h2>
-      <a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true">
-        <span aria-hidden="true" class="octicon octicon-link"></span>
-      </a>Passo 3: Design
-    </h2>
-    <h3>Adicionar referencia aos estilos</h3>
+      <h2>
+        <a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true">
+          <span aria-hidden="true" class="octicon octicon-link"></span>
+        </a>Passo 3: Design
+      </h2>
+      <h3>Adicionar referencia aos estilos</h3>
 
-    <p>Nossa app apresenta um design bem pobre por enquanto.
-      Vamos providenciar melhorias nesse visual.
-      Vamos usar o projeto <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
-      para estilizar de uma maneira fácil nossa app.
-    </p>
+      <p>Nossa app apresenta um design bem pobre por enquanto.
+        Vamos providenciar melhorias nesse visual.
+        Vamos usar o projeto <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
+        para estilizar de uma maneira fácil nossa app.
+      </p>
 
-    <p>
-      Abra <code>app/views/layouts/application.html.erb</code> no seu editor de texto e acima da linha:<br>
-      <code>&lt;%= stylesheet_link_tag "application" %&gt;</code>
-    </p>
+      <p>
+        Abra <code>app/views/layouts/application.html.erb</code> no seu editor de texto e acima da linha:<br>
+        <code>&lt;%= stylesheet_link_tag "application" %&gt;</code>
+      </p>
 
-    <p>acrescente o seguinte:</p>
-    <pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code></pre>
-    <p>Para mais informações relacionadas ao Bootstrap, acesse <strong><a href="https://getbootstrap.com/">Bootstrap</a></strong></p>
+      <p>acrescente o seguinte:</p>
+      <pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code></pre>
+      <p>Para mais informações relacionadas ao Bootstrap, acesse <strong><a href="https://getbootstrap.com/">Bootstrap</a></strong></p>
 
-    <h3>Criar uma barra de navegação</h3>
-    <p>Agora vamos remover o estilo padrão que temos para adicionar um estilo customizado para nossa barra de navegação.</p>
-    <p>Apague o arquivo <code>app/assets/stylesheets/scaffold.scss</code>.</p>
+      <h3>Criar uma barra de navegação</h3>
+      <p>Agora vamos remover o estilo padrão que temos para adicionar um estilo customizado para nossa barra de navegação.</p>
+      <p>Apague o arquivo <code>app/assets/stylesheets/scaffold.scss</code>.</p>
 
-    <p>
-      Agora abra o arquivo <code>app/views/layouts/application.html.erb</code> e logo <strong>após</strong> a tag de abertura <strong><code>&lt;body&gt;</code></strong> acrescente:
-    </p>
+      <p>
+        Agora abra o arquivo <code>app/views/layouts/application.html.erb</code> e logo <strong>após</strong> a tag de abertura <strong><code>&lt;body&gt;</code></strong> acrescente:
+      </p>
 
-    <pre><code>&lt;header class="container py-3"&gt;
-  &lt;div class="row flex-nowrap justify-content-between align-items-center"&gt;
-    &lt;div class="col-4 pt-1"&gt;
-      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-facebook"&gt;&lt;/span&gt;&lt;/a&gt;
-      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-twitter"&gt;&lt;/span&gt;&lt;/a&gt;
-      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-linkedin"&gt;&lt;/span&gt;&lt;/a&gt;
+      <pre><code>&lt;header class="container py-3"&gt;
+    &lt;div class="row flex-nowrap justify-content-between align-items-center"&gt;
+      &lt;div class="col-4 pt-1"&gt;
+        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-facebook"&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-twitter"&gt;&lt;/span&gt;&lt;/a&gt;
+        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-linkedin"&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="col-4 text-center"&gt;
+        &lt;a class="blog-header-logo text-dark" href="#"&gt;Seu Nome aqui&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class="col-4 d-flex justify-content-end align-items-center"&gt;
+        &lt;a class="text-muted mr-3" href="#"&gt;Portfolio&lt;/a&gt;
+        &lt;a class="text-muted mr-3" href="#"&gt;Sobre mim&lt;/a&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="col-4 text-center"&gt;
-      &lt;a class="blog-header-logo text-dark" href="#"&gt;Seu Nome aqui&lt;/a&gt;
-    &lt;/div&gt;
-    &lt;div class="col-4 d-flex justify-content-end align-items-center"&gt;
-      &lt;a class="text-muted mr-3" href="#"&gt;Portfolio&lt;/a&gt;
-      &lt;a class="text-muted mr-3" href="#"&gt;Sobre mim&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/header&gt;</code></pre>
+  &lt;/header&gt;</code></pre>
 
-    <h3>Criar um footer</h3>
-    <p>Agora vamos adicionar um outro estilo customizado para o nosso footer</p>
-    <p>Ainda no mesmo arquivo, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
+      <h3>Criar um footer</h3>
+      <p>Agora vamos adicionar um outro estilo customizado para o nosso footer</p>
+      <p>Ainda no mesmo arquivo, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
 
-    <pre><code>&lt;footer class="footer bg-light py-4"&gt;
-  &lt;div class="container text-center"&gt;
-    &lt;p&gt;Feito com &lt;span class="entypo-heart"&gt;&lt;/span&gt; por &lt;a href="https://twitter.com/seutwitteraqui"&gt;Seu nome aqui&lt;/a&gt;.
-    &lt;/p&gt;
-    &lt;p&gt;&lt;a href="#"&gt;Voltar para cima&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/footer&gt;</code></pre>
-
-    <h3>Adicionar ícone de Redes Sociais</h3>
-    <p>
-      Para adicionar o ícone das redes sociais,
-      basta adicionar na ultima linha do arquivo <code>app/assets/application.css</code> o código:
-    </p>
-
-    <pre><code>@import url(http://weloveiconfonts.com/api/?family=entypo%7Czocial);
-
-/* entypo */
-[class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
-}
-/* zocial */
-[class*="zocial-"]:before {
-  font-family: 'zocial', sans-serif;
-}</code></pre>
-
-    <p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
-
-    <h3>Alterar a pagina inicial com seus dados</h3>
-    <p>Na primeira linha do arquivo <code>app/views/projects/index.html.erb</code>, adicione o código:</p>
-
-    <pre><code>&lt;section class="jumbotron text-center"&gt;
-  &lt;div class="container"&gt;
-      &lt;h1 class="jumbotron-heading"&gt;Ola! Eu sou a [seu nome aqui].&lt;/h1&gt;
-      &lt;p class="lead text-muted"&gt;Quem sou eu? Quantos anos tenho. Trabalho com o que. O que faço. Quais são os meus hobbies.
+      <pre><code>&lt;footer class="footer bg-light py-4"&gt;
+    &lt;div class="container text-center"&gt;
+      &lt;p&gt;Feito com &lt;span class="entypo-heart"&gt;&lt;/span&gt; por &lt;a href="https://twitter.com/seutwitteraqui"&gt;Seu nome aqui&lt;/a&gt;.
       &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+      &lt;p&gt;&lt;a href="#"&gt;Voltar para cima&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;</code></pre>
 
-    <p>
-      Agora para deixar as informações mais alinhadas, no mesmo arquivo <code>app/views/projects/index.html.erb</code>, acima da linha
-      <code>&lt;p id="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;</code> adicione a tag:
-    </p>
+      <h3>Adicionar ícone de Redes Sociais</h3>
+      <p>
+        Para adicionar o ícone das redes sociais,
+        basta adicionar na ultima linha do arquivo <code>app/assets/application.css</code> o código:
+      </p>
 
-    <pre><code>&lt;main class="container"&gt;</code></pre>
+      <pre><code>@import url(http://weloveiconfonts.com/api/?family=entypo%7Czocial);
 
-    <p>e feche a tag main adicionando na última linha desse mesmo arquivo a tag:</p>
+  /* entypo */
+  [class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+  }
+  /* zocial */
+  [class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+  }</code></pre>
 
-    <pre><code>&lt;/main&gt;</code></pre>
+      <p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
 
-    <h3>Mostrar todos os projetos</h3>
-    <p>Agora vamos alterar o layout onde será mostrado todos os projetos.</p>
-    <p>Ainda no arquivo <code>app/views/projects/index.html.erb</code>, substitua o código:</p>
-    <pre><code>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Picture&lt;/th&gt;
-      &lt;th colspan="3"&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
+      <h3>Alterar a pagina inicial com seus dados</h3>
+      <p>Na primeira linha do arquivo <code>app/views/projects/index.html.erb</code>, adicione o código:</p>
 
-  &lt;tbody&gt;
-    &lt;% @projects.each do |project| %&gt;
+      <pre><code>&lt;section class="jumbotron text-center"&gt;
+    &lt;div class="container"&gt;
+        &lt;h1 class="jumbotron-heading"&gt;Ola! Eu sou a [seu nome aqui].&lt;/h1&gt;
+        &lt;p class="lead text-muted"&gt;Quem sou eu? Quantos anos tenho. Trabalho com o que. O que faço. Quais são os meus hobbies.
+        &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;</code></pre>
+
+      <p>
+        Agora para deixar as informações mais alinhadas, no mesmo arquivo <code>app/views/projects/index.html.erb</code>, acima da linha
+        <code>&lt;p id="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;</code> adicione a tag:
+      </p>
+
+      <pre><code>&lt;main class="container"&gt;</code></pre>
+
+      <p>e feche a tag main adicionando na última linha desse mesmo arquivo a tag:</p>
+
+      <pre><code>&lt;/main&gt;</code></pre>
+
+      <h3>Mostrar todos os projetos</h3>
+      <p>Agora vamos alterar o layout onde será mostrado todos os projetos.</p>
+      <p>Ainda no arquivo <code>app/views/projects/index.html.erb</code>, substitua o código:</p>
+      <pre><code>&lt;table&gt;
+    &lt;thead&gt;
       &lt;tr&gt;
-        &lt;td&gt;&lt;%= project.name %&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;%= project.description %&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;%= project.picture %&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;%= link_to 'Show', project %&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;%= link_to 'Edit', edit_project_path(project) %&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+        &lt;th&gt;Name&lt;/th&gt;
+        &lt;th&gt;Description&lt;/th&gt;
+        &lt;th&gt;Picture&lt;/th&gt;
+        &lt;th colspan="3"&gt;&lt;/th&gt;
       &lt;/tr&gt;
-    &lt;% end %&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
+    &lt;/thead&gt;
 
-    <p>por:</p>
-    <pre><code>&lt;div class="album"&gt;
-  &lt;div class="container"&gt;
-    &lt;div class="row"&gt;
+    &lt;tbody&gt;
       &lt;% @projects.each do |project| %&gt;
-      &lt;div class="col-md-4"&gt;
-        &lt;div class="card mb-4 box-shadow"&gt;
-        &lt;%= image_tag(project.picture, :class =&gt; "card-img-top") if project.picture.present? %&gt;
-          &lt;div class="card-body"&gt;
-            &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
-            &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
-            &lt;div class="d-flex justify-content-between align-items-center"&gt;
-              &lt;%= link_to 'Show', project, class: "btn btn-sm btn-outline-secondary" %&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;%= project.name %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= project.description %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= project.picture %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Show', project %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Edit', edit_project_path(project) %&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;% end %&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;</code></pre>
+
+      <p>por:</p>
+      <pre><code>&lt;div class="album"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="row"&gt;
+        &lt;% @projects.each do |project| %&gt;
+        &lt;div class="col-md-4"&gt;
+          &lt;div class="card mb-4 box-shadow"&gt;
+          &lt;%= image_tag(project.picture, :class =&gt; "card-img-top") if project.picture.present? %&gt;
+            &lt;div class="card-body"&gt;
+              &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
+              &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
+              &lt;div class="d-flex justify-content-between align-items-center"&gt;
+                &lt;%= link_to 'Show', project, class: "btn btn-sm btn-outline-secondary" %&gt;
+              &lt;/div&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
+        &lt;% end %&gt;
       &lt;/div&gt;
-      &lt;% end %&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    <p>
-      Esse passo deixará a listagem de projetos mais organizada e bonita :)
-    </p>
+  &lt;/div&gt;</code></pre>
+      <p>
+        Esse passo deixará a listagem de projetos mais organizada e bonita :)
+      </p>
 
-    <h2 id='step_4_adding_picture_uploads'>
-      Passo 4: Criando mecanismo para upload de imagens
-    </h2>
-    <h3>Bibliotecas</h3>
-    <p>
-      Vamos instalar uma biblioteca que nos permita fazer upload de imagens com Rails.
-    </p>
-    <p>
-      Abra <code>Gemfile</code> localizado no diretório do projeto e depois da linha:
-    </p>
+      <h2 id='step_4_adding_picture_uploads'>
+        Passo 4: Criando mecanismo para upload de imagens
+      </h2>
+      <h3>Bibliotecas</h3>
+      <p>
+        Vamos instalar uma biblioteca que nos permita fazer upload de imagens com Rails.
+      </p>
+      <p>
+        Abra <code>Gemfile</code> localizado no diretório do projeto e depois da linha:
+      </p>
 
-    <pre><code>gem &#39;sqlite3&#39;</code></pre>
+      <pre><code>gem &#39;sqlite3&#39;</code></pre>
 
-    <p>acrescente o seguinte:</p>
-    <pre><code>gem &#39;carrierwave&#39;</code></pre>
+      <p>acrescente o seguinte:</p>
+      <pre><code>gem &#39;carrierwave&#39;</code></pre>
 
-    <p>Para instalar no projeto a gema que foi adicionada ao seu site, acesse o terminal execute:</p>
-    <pre><code>bundle</code></pre>
+      <p>Para instalar no projeto a gema que foi adicionada ao seu site, acesse o terminal execute:</p>
+      <pre><code>bundle</code></pre>
 
 
-    <p>A essa altura você precisa <strong>restartar o servidor Rails</strong> no terminal. Isso é necessário para que a aplicação possa carregar a biblioteca que foi adicionada.</p>
+      <p>A essa altura você precisa <strong>restartar o servidor Rails</strong> no terminal. Isso é necessário para que a aplicação possa carregar a biblioteca que foi adicionada.</p>
 
-    <p>
-      Para mais informações sobre as gemas acesse <strong><a href="http://www.akitaonrails.com/2009/2/2/entendendo-rubygems">Entendendo Ruby Gems</a></strong>
-    </p>
+      <p>
+        Para mais informações sobre as gemas acesse <strong><a href="http://www.akitaonrails.com/2009/2/2/entendendo-rubygems">Entendendo Ruby Gems</a></strong>
+      </p>
 
-    <p>Agora podemos gerar o código para gerenciar uploads. No terminal execute:</p>
-    <pre><code>rails generate uploader Picture</code></pre>
+      <p>Agora podemos gerar o código para gerenciar uploads. No terminal execute:</p>
+      <pre><code>rails generate uploader Picture</code></pre>
 
-    <p>Abra <code>app/models/project.rb</code> e embaixo da linha:
-      <code>class project&lt; ActiveRecord::Base</code>
-    </p>
+      <p>Abra <code>app/models/project.rb</code> e embaixo da linha:
+        <code>class project&lt; ActiveRecord::Base</code>
+      </p>
 
-    <p>acrescente o seguinte:</p>
+      <p>acrescente o seguinte:</p>
 
-    <pre><code>mount_uploader :picture, PictureUploader</code></pre>
+      <pre><code>mount_uploader :picture, PictureUploader</code></pre>
 
-    <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitúa: <code>&lt;%= form.text_field :picture %&gt;</code>
-    </p>
+      <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitúa: <code>&lt;%= form.text_field :picture %&gt;</code>
+      </p>
 
-    <p>para:</p>
-    <pre><code>&lt;%= form.text_field :picture, id: :project_picture %&gt;</code></pre>
+      <p>para:</p>
+      <pre><code>&lt;%= form.text_field :picture, id: :project_picture %&gt;</code></pre>
 
-    <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_with(model: project, local: true) do |form| %&gt;></code></pre>
-    </p>
+      <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_with(model: project, local: true) do |form| %&gt;></code></pre>
+      </p>
 
-    <p>para:</p>
-    <pre><code>&lt;%= form_for(project, :html => { :multipart => true }) do |form| %&gt;</code></pre>
+      <p>para:</p>
+      <pre><code>&lt;%= form_for(project, :html => { :multipart => true }) do |form| %&gt;</code></pre>
 
-    <p>Se você tentar fazer o upload de uma imagem será mostrado  apenas o caminho para o arquivo e nada mais acontece. Vamos corrigir isso.</p>
+      <p>Se você tentar fazer o upload de uma imagem será mostrado  apenas o caminho para o arquivo e nada mais acontece. Vamos corrigir isso.</p>
 
-    <p>Abra <code>app/views/project/show.html.erb</code> e altere:</p>
-    <pre><code>&lt;%= @project.picture %&gt;</code></pre>
+      <p>Abra <code>app/views/project/show.html.erb</code> e altere:</p>
+      <pre><code>&lt;%= @project.picture %&gt;</code></pre>
 
-    <p>para:</p>
-    <pre><code>&lt;%= image_tag(@project.picture, :width =&gt; 600) if @project.picture.present? %&gt;</code></pre>
+      <p>para:</p>
+      <pre><code>&lt;%= image_tag(@project.picture, :width =&gt; 600) if @project.picture.present? %&gt;</code></pre>
 
-    <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
+      <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
 
-    <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
+      <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
 
-    <p>Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão. Agora vamos fazer um redirecionamento para a página project.</p>
+      <p>Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão. Agora vamos fazer um redirecionamento para a página project.</p>
 
-    <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
-    <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
+      <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
+      <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
 
-    <hr>
-    <br>
-    <br>
-    <div class="navigation">ir para o <a href="customize.html">Capítulo 3: Personalize o seu projeto</a></div>
-    <br>
+      <hr>
+      <br>
+      <div><a href="index.html">Voltar para o início</a></div>
+      <div class="navigation">ir para o <a href="publish.html">Capítulo 3: Publique seu projeto na internet!</a></div>
+      <br>
 
-    <footer class="site-footer">
-      <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
-    </footer>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
+      </footer>
 
-  </section>
-</body>
+    </section>
+  </body>
 </html>
