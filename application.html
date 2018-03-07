@@ -73,6 +73,13 @@ rails server</code></pre>
 
       <p>Abra <code>http://localhost:3000/projects</code> no seu navegador.</p>
 
+      <h3>Criando uma nova versão</h3>
+      <p>Agora que temos alguns arquivos referente ao nosso projeto, podemos marcar uma versão do projeto e enviar para o GitHub.</p>
+      <p>Ainda no terminal, digite:</p>
+      <pre><code>git add .</code></pre>
+      <pre><code>git commit -m "Primeira versão"</code></pre>
+      <pre><code>git push</code></pre>
+
       <h2>
         <a id="passo-3-design" class="anchor" href="#passo-3-design" aria-hidden="true">
           <span aria-hidden="true" class="octicon octicon-link"></span>
@@ -290,6 +297,9 @@ rails server</code></pre>
 
       <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
       <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
+
+      <p>Nunca se esqueça de criar uma nova versão do seu projeto a cada conjunto de alterações :)</p>
+      <p>Para isso, vamos repetir os comandos para marcar uma versão do projeto e enviar para o GitHub.</p>
 
       <hr>
       <br>
