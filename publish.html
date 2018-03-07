@@ -37,35 +37,26 @@
 
     <p>para</p>
     <pre><code>group :development do
-gem 'sqlite3'
+  gem 'sqlite3'
 end
+
 group :production do
-gem 'pg'
+  gem 'pg'
 end</code></pre>
 
     <p>Rode <code>bundle install --without production</code> para configurar suas dependências.</p>
-
-    <h5>Para entender mais sobre esse banco de dados, acesse <a href="https://www.postgresql.org/about/">PostgreSQL</a></h5>
-
-    <h3 id='version_control_systems'>Sistema de controle de versões - Git</h3>
-    <p>Precisamos adicionar o controle de versão ao nosso código. Para isso execute no terminal o seguinte código:</p>
-    <pre><code>git init</code></pre>
-    <pre><code>git add .</code></pre>
-    <pre><code>git commit -m "initial commit"</code></pre>
-
-    <h5>Para entender mais sobre o git, acesse <a href="https://git-scm.com/">Git scm</a></h5>
 
     <h2 id='deploying_your_app'>Publicando sua app</h2>
     <h3 id='app_creation'>Criação da App</h3>
     <p>Precisamos criar nossa aplicação heroku  digitando <code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
     <pre><code>Creating evening-sky-7498... done, stack is cedar
-      http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
-      Git remote heroku added</code></pre>
+http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
+Git remote heroku added</code></pre>
 
     <p>Nesse caso "evening-sky-7498" é o nome da sua app.</p>
 
-    <h3 id='pushing_the_code'>Fazendo o pushing do código</h3>
-    <p>A seguir precisamos fazer o push do código para o  heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
+    <h3 id='pushing_the_code'>Fazendo o envio do código para o Heroku</h3>
+    <p>A seguir precisamos fazer o envio do código para o heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
     <pre><code>Counting objects: 134, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (115/115), done.
