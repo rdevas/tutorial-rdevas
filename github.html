@@ -58,7 +58,9 @@
 
     <p>No seu perfil do GitHub clique em "new repo"
       <img src="https://f.cloud.github.com/assets/2623954/595307/eb70c6cc-caf2-11e2-9d2d-60deb31ac049.png">
-      e dê um nome (exemplo: portfolio), breve descrição, escolha a opção "público", e clique em "Criar repositório".
+      e dê um nome (exemplo: portfolio), breve descrição, escolha a opção "público",
+      e certifique-se de que a opção "Inicializar esse repositorio com README" não está selecionada,
+      e então clique em "Criar repositório".
     </p>
 
     <p>No terminal, acesse a pasta raiz do seu projeto</p>
@@ -67,24 +69,46 @@
     <p>E digite o comando abaixo para inicializar um repositório Git no seu projeto</p>
     <pre><code>git init</code></pre>
 
+    <p>Agora vamos criar um arquivo chamado README.md que conterá uma breve descrição do seu projeto.</p>
+    <p>Se o seu Sistema Operacional for <strong>Linux ou Mac</strong>, digite:</p>
+    <pre><code>touch README.md</code></pre>
+    <p>Se o seu Sistema Operacional for <strong>Windows</strong>, digite:</p>
+    <pre><code>type nul > README.md</code></pre>
+
     <p>
-      Para verificar se o repositório Git foi iniciado corretamente no seu projeto, verifique se o arquivo
-      <code>README.md</code> existe na pasta <code>portfolio</code> .
+      Para verificar se o repositório Git foi iniciado corretamente no seu projeto, verifique o estado do seu versionamento.
     </p>
-    <p>No Sistema Operacional Linux ou Mac, digite no terminal:</p>
-    <pre><code>ls README.md</code></pre>
+    <pre><code>git status</code></pre>
+    <p>Esse comando acima, irá listar todos seus arquivos novos ou alterados.</p>
 
+    <p>Então digite </p>
+    <pre><code>git add .</code></pre>
+    <p>Isso confirmará todos os arquivos que serão versionados.</p>
 
+    <p>E depois digite:</p>
+    <pre><code>git commit .</code></pre>
+    <p>Esse comando marcará uma nova versão do seu projeto.</p>
 
+    <p>
+      Para enviar a sua primeira versão do seu projeto para o GitHub, entre na pagina do repositório criado anteriormente
+      e clique no botão "Clone of Download" e copie o link, como mostra na imagem abaixo:
+    </p>
+    <img src="images/github_link.png"/>
 
+    <p>E então digite:</p>
+    <pre><code>git remote add origin [link-que-voce-copiou-no-passo-anterior]</code></pre>
+    <p>Esse comando criará uma conexão com o GitHub. Dessa maneira você sempre terá um backup do seu código lá.</p>
 
+    <p>E então digite:</p>
+    <pre><code>git push -u origin master</code></pre>
+    <p>Este será o comando para enviar o seu versionamento para o GitHub.</p>
 
-
+    <p>Agora vamos inciar o projeto!</p>
 
   <hr>
   <br>
   <div><a href="index.html">Voltar para o início</a></div>
-  <div class="navigation">ir para o <a href="next_steps.html">Capítulo 5: E agora? O que mais posso fazer?</a></div>
+  <div class="navigation">ir para o <a href="application.html">Capítulo 3: Comece a codar!</a></div>
   <br>
 
   <footer class="site-footer">
