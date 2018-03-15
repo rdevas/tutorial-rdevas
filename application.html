@@ -293,13 +293,23 @@ rails server</code></pre>
 
       <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
 
-      <p>Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão. Agora vamos fazer um redirecionamento para a página project.</p>
+      <p>
+        Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão do Rails. 
+        Vamos alterar isso para que a pagina principal seja redirecionada para a pagina de projects.
+      </p>
 
       <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
       <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
 
+      <p>
+        Agora acesse <a href="http://localhost:3000">http://localhost:3000</a> novamente. 
+        Você será redirecionada diretamente para a rota que especificamos anteriormente!
+      </p>
+      <br>
       <p>Nunca se esqueça de criar uma nova versão do seu projeto a cada conjunto de alterações :)</p>
       <p>Para isso, vamos repetir os comandos para marcar uma versão do projeto e enviar para o GitHub.</p>
+      <br>
+      <p>Parabéns por criar a sua primeira página ❤️. Agora vamos publicá-lo na internet!</p>
 
       <hr>
       <br>
