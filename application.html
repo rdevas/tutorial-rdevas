@@ -68,8 +68,8 @@ rails server</code></pre>
       </p>
 
       <pre><code>rails generate scaffold project name:string description:text picture:string
-  rake db:migrate
-  rails server</code></pre>
+rake db:migrate
+rails server</code></pre>
 
       <p>Abra <code>http://localhost:3000/projects</code> no seu navegador.</p>
 
@@ -111,33 +111,37 @@ rails server</code></pre>
       </p>
 
       <pre><code>&lt;header class="container py-3"&gt;
-    &lt;div class="row flex-nowrap justify-content-between align-items-center"&gt;
-      &lt;div class="col-4 pt-1"&gt;
-        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-facebook"&gt;&lt;/span&gt;&lt;/a&gt;
-        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-twitter"&gt;&lt;/span&gt;&lt;/a&gt;
-        &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-linkedin"&gt;&lt;/span&gt;&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="col-4 text-center"&gt;
-        &lt;a class="blog-header-logo text-dark" href="#"&gt;Seu Nome aqui&lt;/a&gt;
-      &lt;/div&gt;
-      &lt;div class="col-4 d-flex justify-content-end align-items-center"&gt;
-        &lt;a class="text-muted mr-3" href="#"&gt;Portfolio&lt;/a&gt;
-        &lt;a class="text-muted mr-3" href="#"&gt;Sobre mim&lt;/a&gt;
-      &lt;/div&gt;
+  &lt;div class="row flex-nowrap justify-content-between align-items-center"&gt;
+    &lt;div class="col-4 pt-1"&gt;
+      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-facebook"&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-twitter"&gt;&lt;/span&gt;&lt;/a&gt;
+      &lt;a class="text-muted mr-3" href="link da sua rede social"&gt;&lt;span class="zocial-linkedin"&gt;&lt;/span&gt;&lt;/a&gt;
     &lt;/div&gt;
-  &lt;/header&gt;</code></pre>
+    &lt;div class="col-4 text-center"&gt;
+      &lt;a class="blog-header-logo text-dark" href="#"&gt;Seu Nome aqui&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4 d-flex justify-content-end align-items-center"&gt;
+      &lt;a class="text-muted mr-3" href="#"&gt;Portfolio&lt;/a&gt;
+      &lt;a class="text-muted mr-3" href="#"&gt;Sobre mim&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+  
+      <p>Acesse o seu site, e veja como ficou a sua nova barra de navegação :)</p>
 
       <h3>Criar um footer</h3>
       <p>Agora vamos adicionar um outro estilo customizado para o nosso footer</p>
       <p>Ainda no mesmo arquivo, antes da tag de fechamento <code>&lt;/body&gt;</code> acrescente:</p>
 
       <pre><code>&lt;footer class="footer bg-light py-4"&gt;
-    &lt;div class="container text-center"&gt;
-      &lt;p&gt;Feito com &lt;span class="entypo-heart"&gt;&lt;/span&gt; por &lt;a href="https://twitter.com/seutwitteraqui"&gt;Seu nome aqui&lt;/a&gt;.
-      &lt;/p&gt;
-      &lt;p&gt;&lt;a href="#"&gt;Voltar para cima&lt;/a&gt;&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/footer&gt;</code></pre>
+  &lt;div class="container text-center"&gt;
+    &lt;p&gt;Feito com &lt;span class="entypo-heart"&gt;&lt;/span&gt; por &lt;a href="https://twitter.com/seutwitteraqui"&gt;Seu nome aqui&lt;/a&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;&lt;a href="#"&gt;Voltar para cima&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+
+      <p>Acesse novamente seu site, e veja como ficou o rodapé do seu site o/</p>
 
       <h3>Adicionar ícone de Redes Sociais</h3>
       <p>
@@ -147,14 +151,14 @@ rails server</code></pre>
 
       <pre><code>@import url(http://weloveiconfonts.com/api/?family=entypo%7Czocial);
 
-  /* entypo */
-  [class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-  }
-  /* zocial */
-  [class*="zocial-"]:before {
-    font-family: 'zocial', sans-serif;
-  }</code></pre>
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}</code></pre>
 
       <p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
 
@@ -162,12 +166,12 @@ rails server</code></pre>
       <p>Na primeira linha do arquivo <code>app/views/projects/index.html.erb</code>, adicione o código:</p>
 
       <pre><code>&lt;section class="jumbotron text-center"&gt;
-    &lt;div class="container"&gt;
-        &lt;h1 class="jumbotron-heading"&gt;Ola! Eu sou a [seu nome aqui].&lt;/h1&gt;
-        &lt;p class="lead text-muted"&gt;Quem sou eu? Quantos anos tenho. Trabalho com o que. O que faço. Quais são os meus hobbies.
-        &lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;</code></pre>
+  &lt;div class="container"&gt;
+      &lt;h1 class="jumbotron-heading"&gt;Ola! Eu sou a [seu nome aqui].&lt;/h1&gt;
+      &lt;p class="lead text-muted"&gt;Quem sou eu? Quantos anos tenho. Trabalho com o que. O que faço. Quais são os meus hobbies.
+      &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
 
       <p>
         Agora para deixar as informações mais alinhadas, no mesmo arquivo <code>app/views/projects/index.html.erb</code>, acima da linha
@@ -184,53 +188,54 @@ rails server</code></pre>
       <p>Agora vamos alterar o layout onde será mostrado todos os projetos.</p>
       <p>Ainda no arquivo <code>app/views/projects/index.html.erb</code>, substitua o código:</p>
       <pre><code>&lt;table&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th&gt;Name&lt;/th&gt;
-        &lt;th&gt;Description&lt;/th&gt;
-        &lt;th&gt;Picture&lt;/th&gt;
-        &lt;th colspan="3"&gt;&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Picture&lt;/th&gt;
+      &lt;th colspan="3"&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
 
-    &lt;tbody&gt;
-      &lt;% @projects.each do |project| %&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;%= project.name %&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;%= project.description %&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;%= project.picture %&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;%= link_to 'Show', project %&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;%= link_to 'Edit', edit_project_path(project) %&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;% end %&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;</code></pre>
+  &lt;tbody&gt;
+    &lt;% @projects.each do |project| %&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;%= project.name %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= project.description %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= project.picture %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Show', project %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Edit', edit_project_path(project) %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;% end %&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
 
       <p>por:</p>
       <pre><code>&lt;div class="album"&gt;
-    &lt;div class="container"&gt;
-      &lt;div class="row"&gt;
-        &lt;% @projects.each do |project| %&gt;
-        &lt;div class="col-md-4"&gt;
-          &lt;div class="card mb-4 box-shadow"&gt;
-          &lt;%= image_tag(project.picture, :class =&gt; "card-img-top") if project.picture.present? %&gt;
-            &lt;div class="card-body"&gt;
-              &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
-              &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
-              &lt;div class="d-flex justify-content-between align-items-center"&gt;
-                &lt;%= link_to 'Show', project, class: "btn btn-sm btn-outline-secondary" %&gt;
-              &lt;/div&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+      &lt;% @projects.each do |project| %&gt;
+      &lt;div class="col-md-4"&gt;
+        &lt;div class="card mb-4 box-shadow"&gt;
+        &lt;%= image_tag(project.picture, :class =&gt; "card-img-top") if project.picture.present? %&gt;
+          &lt;div class="card-body"&gt;
+            &lt;h4&gt;&lt;%= project.name %&gt;&lt;/h4&gt;
+            &lt;p class="card-text"&gt;&lt;%= project.description %&gt;&lt;/p&gt;
+            &lt;div class="d-flex justify-content-between align-items-center"&gt;
+              &lt;%= link_to 'Show', project, class: "btn btn-sm btn-outline-secondary" %&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;% end %&gt;
       &lt;/div&gt;
+      &lt;% end %&gt;
     &lt;/div&gt;
-  &lt;/div&gt;</code></pre>
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
       <p>
         Esse passo deixará a listagem de projetos mais organizada e bonita :)
       </p>
+      <p>Acesse o seu site para ver como ficou sua listagem de projetos!</p>
 
       <h2 id='step_4_adding_picture_uploads'>
         Passo 4: Criando mecanismo para upload de imagens
@@ -293,13 +298,23 @@ rails server</code></pre>
 
       <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
 
-      <p>Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão. Agora vamos fazer um redirecionamento para a página project.</p>
+      <p>
+        Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão do Rails. 
+        Vamos alterar isso para que a pagina principal seja redirecionada para a pagina de projects.
+      </p>
 
       <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
       <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
 
+      <p>
+        Agora acesse <a href="http://localhost:3000">http://localhost:3000</a> novamente. 
+        Você será redirecionada diretamente para a rota que especificamos anteriormente!
+      </p>
+      <br>
       <p>Nunca se esqueça de criar uma nova versão do seu projeto a cada conjunto de alterações :)</p>
       <p>Para isso, vamos repetir os comandos para marcar uma versão do projeto e enviar para o GitHub.</p>
+      <br>
+      <p>Parabéns por criar a sua primeira página ❤️. Agora vamos publicá-lo na internet!</p>
 
       <hr>
       <br>

@@ -32,10 +32,8 @@
     <h3 id='updating_our_database'>Atualização do banco de dados</h3>
     <p>Em primeiro lugar precisamos fazer com que nosso banco de dados funcione na plataforma Heroku, que usa um banco de dados diferente, chamado PostgreSQL.</p>
 
-    <p>Altere o seguinte em Gemfile:</p>
-    <pre><code>gem &#39;sqlite3&#39;</code></pre>
+    <p>No arquivo Gemfile substitua a linha: <code>gem &#39;sqlite3&#39;</code> por:</p>
 
-    <p>para</p>
     <pre><code>group :development do
   gem 'sqlite3'
 end
@@ -44,19 +42,37 @@ group :production do
   gem 'pg'
 end</code></pre>
 
-    <p>Rode <code>bundle install --without production</code> para configurar suas dependências.</p>
+    <p>Rode o comando a seguir para configurar suas dependências:</p>
+
+    <pre><code>bundle install --without production</code></pre>
 
     <h2 id='deploying_your_app'>Publicando sua app</h2>
     <h3 id='app_creation'>Criação da App</h3>
-    <p>Precisamos criar nossa aplicação heroku  digitando <code>heroku create</code> o que mostrará no terminal  o seguinte:</p>
-    <pre><code>Creating evening-sky-7498... done, stack is cedar
-http://evening-sky-7498.herokuapp.com/ | git@heroku.com:evening-sky-7498.git
+    <p>Precisamos criar nossa aplicação heroku digitando:</p>
+    
+    <pre><code>heroku create nome-do-seu-site-aqui</code></pre>
+    
+    <p>Já que estamos fazendo um portifólio e ele fala sobre você, porque não colocar o seu nome no endereço do site?<br>
+      Se seu nome for <code>Clara da Silva</code>, você pode digitar <code>heroku create clara-da-silva</code>.
+    </p>
+    <p>Então a resposta do comando mostrará no terminal o seguinte:</p>
+
+    <pre><code>Creating clara-da-silva... done, stack is cedar
+http://clara-da-silva.herokuapp.com/ | git@heroku.com:clara-da-silva.git
 Git remote heroku added</code></pre>
 
-    <p>Nesse caso "evening-sky-7498" é o nome da sua app.</p>
+    <p>
+      Agora acesse o link que mostra no seu terminal.<br>
+      Nesse exemplo, o link seria <code>http://clara-da-silva.herokuapp.com/</code>. Esse será o endereço oficial do seu site :)
+    </p>
 
-    <h3 id='pushing_the_code'>Fazendo o envio do código para o Heroku</h3>
-    <p>A seguir precisamos fazer o envio do código para o heroku digitando <code>git push heroku master</code>. Você verá a saída do push como mostrado a seguir:</p>
+    <h3 id='pushing_the_code'>Fazendo o envio do seu código para o Heroku</h3>
+    <p>A seguir precisamos fazer o envio do seu código para o heroku digitando</p>
+    
+    <pre><code>git push heroku master</code></pre>
+    
+    <p>Você verá a saída do push como mostrado a seguir:</p>
+    
     <pre><code>Counting objects: 134, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (115/115), done.
@@ -72,16 +88,17 @@ Fetching gem metadata from https://rubygems.org/.......
 -----&gt; Launching... done, v4
 http://evening-sky-7498.herokuapp.com deployed to Heroku</code></pre>
 
-    <p>O processo estar-a terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
+    <p>O processo estará terminado com êxito quando aparecer o texto &#8220;Launching&#8230;&#8221; como mostrado anteriomente.</p>
 
     <h3 id='migrate_database'>Migrando o banco de dados</h3>
     <p>Precisamos migrar nosso banco de dados tal como fizemos localmente durante esse workshop:</p>
     <pre><code>heroku run rake db:migrate</code></pre>
 
     <p>Depois que  esse comando for executado você poderá acessar a app na sua URL.</p>
-    <p>Para a plicação que desenvolvemos nesse exemplo abra: <a href='http://evening-sky-7498.herokuapp.com'>http://evening-sky-7498.herokuapp.com/</a>.</p>
     <p>Opcionalmente, para visitar a página, você pode executar <code>heroku open</code> no terminal.</p>
-
+    <br>
+    <p>Agora o seu site já está no ar! Você pode compartilhar com quem quiser ❤️</p>
+    <p>Vamos avançar para o próximo capítulo e criar uma página de biografia :)</p>
     <hr>
     <br>
     <div><a href="index.html">Voltar para o início</a></div>
