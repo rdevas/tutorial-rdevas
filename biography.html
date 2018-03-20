@@ -23,34 +23,68 @@
       Capítulo 5: Criar página de biografia
     </h1>
 
-    <h2 id='get_heroku'>Abc</h2>
+    <h2 id='passo_1'>Passo 1: Criando um novo controller</h2>
+
+    <p>Vamos criar um novo controller com uma só ação chamada index com o seguinte comando:</p>
+    <pre><code>rails generate controller biography index</code></pre>
+    <p>Após a execução do comando será informado os arquivos que foram criados automáticamente.</p>
+
+    <h2 id='passo_2'>Passo 2: Criando o layout da página</h2>
+
+    <p>Abra o arquivo <code>app/views/biography/index.html.erb</code> e insira o código abaixo.<p>
+    <pre><code>&lt;section class="jumbotron text-center"&gt;
+  &lt;div class="container"&gt;
+    &lt;h1 class="jumbotron-heading"&gt;Quem sou eu?&lt;/h1&gt;
+    &lt;p class="lead text-muted"&gt;Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;main class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-8"&gt;
+      &lt;p class="lead"&gt;Pode ser que sim, pode ser que não, só depende do ponto de vista. Frase de efeito bonita por mim.&lt;/p&gt;
+
+      &lt;p&gt;Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet, consectetur adipiscing elit. Squirtle Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/p&gt;
+      &lt;p&gt;Alakazam Lorem ipsum dolor sit amet, consectetur adipiscing elit. Machop Lorem ipsum dolor sit amet, consectetur adipiscing elit. Machoke Lorem ipsum dolor sit amet, consectetur adipiscing elit. Machamp Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bellsprout Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weepinbell Lorem ipsum dolor sit amet, consectetur adipiscing elit. Victreebel Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tentacool Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tentacruel Lorem ipsum dolor sit amet, consectetur adipiscing elit...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-4"&gt;
+      &lt;img src="https://vignette.wikia.nocookie.net/videojuego/images/5/5f/Stitch.png/revision/latest/scale-to-width-down/220" alt="me" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;</code></pre>
+
+    <p>Nós montamos uma página simples onde você pode colocar uma foto sua e se descrever um pouco, porém essa é a hora de você aproveitar para pesquisar um pouco mais sobre HTML e CSS e colocar sua criatividade em prática, não se limite ao que está aqui no tutorial! :)</p>
+    <p>Acesse <code>http://localhost:3000/biography/index</code> e veja como está ficando sua nova página!</p>
+
+    <h2 id='passo_3'>Passo 3: Ajustando links do menu da sua página</h2>
+
+    <p>Agora que temos mais de uma página no nosso projeto, precisamos colocar os links corretamente no nosso menu de navegação.<br />
+    Vamos editar o arquivo <code>app/views/layouts/application.html.erb</code>.</p>
+
+    <p>Lembrando que os links são informados pela tag <code>a</code> e que o caminho para onde vamos ao clicar é informado no atributo <code>href</code>, vamos alterar o 'caminho para onde vamos' nos links do nosso menu, os links ficarão da seguinte forma:</p>
+
+    <pre><code>&lt;a class="blog-header-logo text-dark" href="/"&gt;Seu Nome aqui&lt;/a&gt;</code></pre>
+    <pre><code>&lt;a class="text-muted mr-3" href="/"&gt;Portfolio&lt;/a&gt;</code></pre>
+    <pre><code>&lt;a class="text-muted mr-3" href="/biography/index"&gt;Sobre mim&lt;/a&gt;</code></pre>
+
+    <p>Não esqueça de acessar seu site e testar se todos os links do seu menu estão funcionando! \o/</p>
+    <br />
     <p>
-      parágrafo <a href='https://devcenter.heroku.com/articles/quickstart'>quickstart guide</a>
+      Pronto! Você fez todos os passos para criar um site de portifólio!
+      <br> Agora é só adicionar cada um dos seus projetos no seu portifólio e divulgá-lo!
+      <br> Parabéns programadora!
     </p>
 
-    <h2 id='preparing_your_app'>H2</h2>
-    <h3 id='updating_our_database'>H3</h3>
-    <p>Parafrago</p>
+    <hr /><br />
 
-    <p>Paragrafo com código:</p>
-    <pre><code>gem &#39;sqlite3&#39;</code></pre>
- 
-<br>
-  <p>
-    Pronto! Você fez todos os passos para criar um site de portifólio!
-    <br> Agora é só adicionar cada um dos seus projetos no seu portifólio e divulgá-lo!
-    <br> Parabéns programadora!
-  </p>
-  <hr>
-  <br>
-  <div><a href="index.html">Voltar para o início</a></div>
-  <div class="navigation">ir para o <a href="next_steps.html">Capítulo 6: E agora? O que mais posso fazer?</a></div>
-  <br>
+    <div><a href="index.html">Voltar para o início</a></div>
+    <div class="navigation">ir para o <a href="next_steps.html">Capítulo 6: E agora? O que mais posso fazer?</a></div>
+    <br />
 
-  <footer class="site-footer">
-    <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
-  </footer>
+    <footer class="site-footer">
+      <span class="site-footer-owner"><a href="https://resultadosdigitais.com.br">Resultados Digitais</a></span>
+    </footer>
 
-</section>
+  </section>
 </body>
 </html>
