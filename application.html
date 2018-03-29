@@ -89,7 +89,7 @@ rails server</code></pre>
 
       <p>Nossa app apresenta um design bem pobre por enquanto.
         Vamos providenciar melhorias nesse visual.
-        Vamos usar o projeto <a href="http://getbootstrap.com/">Twitter Bootstrap</a>
+        Vamos usar o projeto <a target="_blank" href="http://getbootstrap.com/">Twitter Bootstrap</a>
         para estilizar de uma maneira fácil nossa app.
       </p>
 
@@ -100,7 +100,7 @@ rails server</code></pre>
 
       <p>acrescente o seguinte:</p>
       <pre><code>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code></pre>
-      <p>Para mais informações relacionadas ao Bootstrap, acesse <strong><a href="https://getbootstrap.com/">Bootstrap</a></strong></p>
+      <p>Para mais informações relacionadas ao Bootstrap, acesse <strong><a target="_blank" href="https://getbootstrap.com/">Bootstrap</a></strong></p>
 
       <h3>Criar uma barra de navegação</h3>
       <p>Agora vamos remover o estilo padrão que temos para adicionar um estilo customizado para nossa barra de navegação.</p>
@@ -160,9 +160,9 @@ rails server</code></pre>
   font-family: 'zocial', sans-serif;
 }</code></pre>
 
-      <p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
+      <p>Para mais informações relacionadas ao ícone de redes sociais, acesse <strong><a target="_blank" href="http://weloveiconfonts.com/">We Love Icon Fonts</a></strong></p>
 
-      <h3>Alterar a pagina inicial com seus dados</h3>
+      <h3>Alterar a página inicial com seus dados</h3>
       <p>Na primeira linha do arquivo <code>app/views/projects/index.html.erb</code>, adicione o código:</p>
 
       <pre><code>&lt;section class="jumbotron text-center"&gt;
@@ -253,14 +253,14 @@ rails server</code></pre>
       <p>acrescente o seguinte:</p>
       <pre><code>gem &#39;carrierwave&#39;</code></pre>
 
-      <p>Para instalar no projeto a gema que foi adicionada ao seu site, acesse o terminal execute:</p>
+      <p>Para instalar no projeto a gema que foi adicionada ao seu site, acesse o terminal e execute:</p>
       <pre><code>bundle</code></pre>
 
 
       <p>A essa altura você precisa <strong>restartar o servidor Rails</strong> no terminal. Isso é necessário para que a aplicação possa carregar a biblioteca que foi adicionada.</p>
 
       <p>
-        Para mais informações sobre as gemas acesse <strong><a href="http://www.akitaonrails.com/2009/2/2/entendendo-rubygems">Entendendo Ruby Gems</a></strong>
+        Para mais informações sobre as gemas acesse <strong><a target="_blank" href="http://www.akitaonrails.com/2009/2/2/entendendo-rubygems">Entendendo Ruby Gems</a></strong>
       </p>
 
       <p>Agora podemos gerar o código para gerenciar uploads. No terminal execute:</p>
@@ -274,13 +274,13 @@ rails server</code></pre>
 
       <pre><code>mount_uploader :picture, PictureUploader</code></pre>
 
-      <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitúa: <code>&lt;%= form.text_field :picture %&gt;</code>
+      <p>Abra o arquivo <code>app/views/project/_form.html.erb</code> e substitua: <code>&lt;%= form.text_field :picture %&gt;</code>
       </p>
 
       <p>para:</p>
       <pre><code>&lt;%= form.text_field :picture, id: :project_picture %&gt;</code></pre>
 
-      <p>e, no mesmo arquivo, substitúa: <code>&lt;%= form_with(model: project, local: true) do |form| %&gt;></code></pre>
+      <p>e, no mesmo arquivo, substitua: <code>&lt;%= form_with(model: project, local: true) do |form| %&gt;></code></pre>
       </p>
 
       <p>para:</p>
@@ -294,20 +294,20 @@ rails server</code></pre>
       <p>para:</p>
       <pre><code>&lt;%= image_tag(@project.picture, :width =&gt; 600) if @project.picture.present? %&gt;</code></pre>
 
-      <p>Para mais informações sobre HTML acesse <strong><a href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
+      <p>Para mais informações sobre HTML acesse <strong><a target="_blank" href="http://tableless.github.io/iniciantes/manual/html/">Tableless HTML</a></strong></p>
 
       <h2 id='step_5_finetune_the_routes'>Passo 5: Alterar a rota padrão do site</h2>
 
       <p>
-        Se você abrir <a href="http://localhost:3000">http://localhost:3000</a>, que é a pagina inicial do site, você irá ver a página padrão do Rails. 
-        Vamos alterar isso para que a pagina principal seja redirecionada para a pagina de projects.
+        Se você abrir <a target="_blank" href="http://localhost:3000">http://localhost:3000</a>, que é a página inicial do site, você irá ver a página padrão do Rails.
+        Vamos alterar isso para que a página principal seja redirecionada para a página de projects.
       </p>
 
       <p>Abra <code>config/routes.rb</code> e depois da primeira linha acrescente o seguinte:</p>
       <pre><code>root :to =&gt; redirect('/projects’)</code></pre>
 
       <p>
-        Agora acesse <a href="http://localhost:3000">http://localhost:3000</a> novamente. 
+        Agora acesse <a target="_blank" href="http://localhost:3000">http://localhost:3000</a> novamente.
         Você será redirecionada diretamente para a rota que especificamos anteriormente!
       </p>
       <br>
